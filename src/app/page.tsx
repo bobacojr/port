@@ -1,30 +1,28 @@
 "use client"
-import { useAnimate } from "motion/react";
+import { useAnimate, motion, useTransform, useScroll } from "motion/react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import NAVBAR from "./(components)/navbar/page";
 
 export default function Home() {
   const [scope, animate] = useAnimate();
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const cube = useRef(null);
+  const { scrollX, scrollY } = useScroll();  
 
   return (
-    <div className="flex w-screen h-screen border-2 border-red-600" id="main-container">
-      <div className="flex w-screen h-20 items-center justify-center" id="navbar-container">
+    <div className="flex flex-col max-w-screen min-h-screen" id="main-container">
+      <div className="flex w-full h-20 items-center justify-center" id="navbar-container">
         <NAVBAR />
+      </div>
+      <div className="flex flex-col w-full h-screen pl-3">
+        Hello
+      </div>
+      <div className="flex flex-col w-full h-screen pl-3">
+        Hello
+      </div>
+      <div className="flex flex-col w-full h-screen pl-3">
+        Hello
       </div>
     </div>
   );

@@ -12,28 +12,34 @@ const hoverVariants = {
     },
     hover: (index: number) => ({
         y: [0, -20, 0],
+        color: ['#5C5C5C', '#048A81', '#5C5C5C'],
         transition: {
             delay: index * 0.03,
-            duration: 0.1,
-            ease: 'easeInOut'
+            duration: 0.14,
+            ease: 'easeInOut',
         }
     }),
 };
 
-const AnimateText: React.FC<Props> = ({ text }) => {
+const JumpingText: React.FC<Props> = ({ text }) => {
 
-    const [isAnimating, setIsAnimating] = useState<boolean>(false);
+    const [isHovering, setIsHovering] = useState<boolean>(false);
 
     return ( 
         <motion.div className='flex' whileHover={'hover'}
-            onHoverStart={() => setIsAnimating(true)}
-            onAnimationComplete={() => setIsAnimating(false)}
+            onHoverStart={() => setIsHovering(true)}
             >
             {text.split('').map((char, index) => (
                 <motion.span 
                     key={index} 
                     custom={index}
                     variants={hoverVariants}
+                    animate={isHovering ? 'hover' : 'initial'}
+                    onAnimationComplete={() => {
+                        if (index === text.length - 1) {
+                            setIsHovering(false);
+                        }
+                    }}
                     >
                     {char}
                 </motion.span>
@@ -42,4 +48,4 @@ const AnimateText: React.FC<Props> = ({ text }) => {
      );
 }
  
-export default AnimateText;
+export default JumpingText;

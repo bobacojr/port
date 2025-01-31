@@ -3,11 +3,41 @@
 @tailwind utilities;
 
 @font-face {
+    font-family: 'Grith';
+    src: url('/Grith-gw3z1.otf');
+}
+
+@font-face {
+    font-family: 'Sageworld';
+    src: url('/Sageworld-ZpwvJ.ttf');
+}
+
+@font-face {
+    font-family: 'Thernaly';
+    src: url('/Thernaly-YqjWv.ttf');
+}
+
+@font-face {
     font-family: 'Paradose';
     src: url('/WsParadoseRegular.ttf')format('truetype');
 }
-.test {
+.paradose {
     font-family: 'Paradose', sans-serif;
+    color: #5C5C5C;
+}
+
+.grith {
+    font-family: 'Grith', sans-serif;
+    color: #5C5C5C;
+}
+
+.sageworld {
+    font-family: 'Sageworld', sans-serif;
+    color: #5C5C5C;
+}
+
+.thernaly {
+    font-family: 'Thernaly', sans-serif;
     color: #5C5C5C;
 }
 
