@@ -8,9 +8,14 @@ export default {
   ],
   theme: {
     extend: {
+      fontSize: {
+        '10xl': '9rem',
+        '11xl': '10rem',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'myteal': '#048A81',
       },
     },
   },

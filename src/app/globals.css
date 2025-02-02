@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
     font-family: 'Grith';
     src: url('/Grith-gw3z1.otf');
 }
 
 @font-face {
-    font-family: 'Sageworld';
+    font-family: 'Sagewold';
     src: url('/Sageworld-ZpwvJ.ttf');
 }
 
@@ -28,17 +29,17 @@
 
 .grith {
     font-family: 'Grith', sans-serif;
-    color: #5C5C5C;
+    
 }
 
 .sageworld {
     font-family: 'Sageworld', sans-serif;
-    color: #5C5C5C;
+    
 }
 
 .thernaly {
     font-family: 'Thernaly', sans-serif;
-    color: #5C5C5C;
+    
 }
 
 .button {

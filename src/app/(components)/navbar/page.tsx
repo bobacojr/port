@@ -36,7 +36,7 @@ const Navbar = () => {
             >
             <div className='flex w-full h-full'>
                 <ol className='flex h-full w-full items-center justify-between'>
-                    <li className='ml-3 text-3xl paradose'>
+                    <li className='ml-3 text-3xl sm:text-4xl paradose'>
                         <Link href={'/'}>
                             <JumpingText text='Kaleb Maulding'/>
                         </Link>
@@ -102,7 +102,7 @@ const Navbar = () => {
                         </Link>
                     </div>
                 </ol>
-                <motion.div className='flex fixed flex-col bg-white gap-3 left-0 top-20 w-full justify-center overflow-hidden items-center md:hidden'
+                <motion.div className='flex fixed flex-col bg-white gap-3 left-0 top-20 w-full justify-center overflow-hidden items-center border-2 border-purple-600 md:hidden'
                     initial={{ height: 0, opacity: 0 }}
                     animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
