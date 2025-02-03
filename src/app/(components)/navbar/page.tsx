@@ -29,14 +29,14 @@ const Navbar = () => {
     })
 
     return (
-        <motion.div className='flex fixed w-full h-20 bg-white'
+        <motion.div className='flex fixed w-full justify-center items-center bg-white opacity-95 h-20 xl:h-24 border-2 border-green-600'
             initial={{ y: 0 }}
             animate={{ y: scrollDirection === "down" ? '-100%' : 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             >
             <div className='flex w-full h-full'>
-                <ol className='flex h-full w-full items-center justify-between'>
-                    <li className='ml-3 text-3xl sm:text-4xl paradose'>
+                <ol className='flex h-full w-full items-center justify-between xl:mr-20'>
+                    <li className='ml-3 text-3xl flex sm:text-4xl paradose xl:ml-20 xl:text-5xl items-center justify-center mb-1 lg:mb-8'>
                         <Link href={'/'}>
                             <JumpingText text='Kaleb Maulding'/>
                         </Link>
@@ -46,7 +46,7 @@ const Navbar = () => {
                             rotateZ: 45,
                             translateX: 3,
                             translateY: 4,
-                        } : {
+                        } : { 
                             opacity: 1,
                         }}/>
                         <motion.span className="line" animate={isOpen ? {
@@ -63,9 +63,9 @@ const Navbar = () => {
                             opacity: 1,
                         }}/>
                     </motion.li>
-                    <div className='hidden md:flex gap-16'>
+                    <div className='hidden md:flex gap-16 justify-center items-center'>
                         <Link href={'/about'}>
-                            <motion.li className='button' 
+                            <motion.li className='flex pointer w-24 h-10 border-2 rounded-3xl font-medium text-xl border-mygray items-center justify-center' 
                                 whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                                 whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                                 animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -74,7 +74,7 @@ const Navbar = () => {
                             </motion.li>
                         </Link>
                         <Link href={'/projects'}>
-                            <motion.li className='button' 
+                            <motion.li className='flex pointer w-24 h-10 border-2 rounded-3xl font-medium text-xl border-mygray items-center justify-center ' 
                                 whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                                 whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                                 animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -83,7 +83,7 @@ const Navbar = () => {
                             </motion.li>
                         </Link>
                         <Link href={'/work'}>
-                            <motion.li className='button' 
+                            <motion.li className='flex pointer w-24 h-10 border-2 rounded-3xl font-medium text-xl border-mygray items-center justify-center' 
                                 whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                                 whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                                 animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -92,7 +92,7 @@ const Navbar = () => {
                             </motion.li>
                         </Link>
                         <Link href={'/contact'}>
-                            <motion.li className='button mr-3 md:mr' 
+                            <motion.li className='flex pointer w-24 h-10 border-2 rounded-3xl font-medium text-xl border-mygray items-center justify-center' 
                                 whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                                 whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                                 animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -102,9 +102,9 @@ const Navbar = () => {
                         </Link>
                     </div>
                 </ol>
-                <motion.div className='flex fixed flex-col bg-white gap-3 left-0 top-20 w-full justify-center overflow-hidden items-center border-2 border-purple-600 md:hidden'
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                <motion.div className='flex fixed flex-col bg-white gap-3 left-0 top-20 w-full justify-center overflow-hidden items-center md:hidden'
+                    initial={{ height: 0, opacity: 1 }}
+                    animate={isOpen ? { height: '100vh', opacity: 1 } : { height: 0, opacity: 1 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
                     >
                     <Link href={'/about'}>

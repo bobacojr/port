@@ -26,7 +26,7 @@ const JumpingText: React.FC<Props> = ({ text }) => {
     const [isHovering, setIsHovering] = useState<boolean>(false);
 
     return ( 
-        <motion.div className='flex' whileHover={'hover'}
+        <motion.div className='flex justify-center items-center lg:mt-7' whileHover={'hover'}
             onHoverStart={() => setIsHovering(true)}
             >
             {text.split('').map((char, index) => (
