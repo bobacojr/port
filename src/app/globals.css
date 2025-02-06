@@ -22,6 +22,35 @@
     font-family: 'Paradose';
     src: url('/WsParadoseRegular.ttf')format('truetype');
 }
+
+.smallbutton {
+    display: flex;
+    cursor: pointer;
+    width: 4.5rem;
+    height: 2rem;
+    border-width: 2px;
+    border-radius: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-color: #5C5C5C;
+    align-items: center;
+    justify-content: center;
+}
+
+.bigbutton {
+    display: flex;
+    cursor: pointer;
+    width: 5.2rem;
+    height: 2rem;
+    border-width: 2px;
+    border-radius: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-color: #5C5C5C;
+    align-items: center;
+    justify-content: center;
+}
+
 .paradose {
     font-family: 'Paradose', sans-serif;
     color: #5C5C5C;

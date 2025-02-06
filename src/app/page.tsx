@@ -62,12 +62,12 @@ export default function Home() {
               <motion.span 
                 className="flex min-w-full h-20 border-y-2 border-x-0 border-black justify-center items-center" initial={{ x: '0%' }} animate={{ x: '-100%' }}
                 transition={{ duration: 20, repeat: Infinity, repeatType: 'loop', ease: 'linear'}}>
-                &nbsp;CLICK TO LEARN MORE&nbsp; - &nbsp;<span className="text-xl">ABOUT</span>&nbsp; - &nbsp;CLICK TO LEARN MORE&nbsp; - &nbsp;<span className="text-xl">ABOUT</span>&nbsp; - &nbsp;CLICK TO LEARN MORE&nbsp; - &nbsp;<span className="text-xl">ABOUT</span>&nbsp; - &nbsp;CLICK TO LEARN MORE&nbsp; - &nbsp;<span className="text-xl">ABOUT</span>&nbsp; - &nbsp;CLICK TO LEARN MORE&nbsp; - &nbsp;<span className="text-xl">ABOUT</span>&nbsp;
+                  Hello
               </motion.span>
               <motion.span 
                 className="flex min-w-full h-20 border-y-2 border-x-0 border-black justify-center items-center" initial={{ x: '0%' }}animate={{ x: '-100%' }}
                 transition={{ duration: 20, repeat: Infinity, repeatType: 'loop', ease: 'linear'}}>
-                &nbsp;CLICK TO LEARN MORE&nbsp; - &nbsp;<span className="text-xl">ABOUT</span>&nbsp; - &nbsp;CLICK TO LEARN MORE&nbsp; - &nbsp;<span className="text-xl">ABOUT</span>&nbsp; - &nbsp;CLICK TO LEARN MORE&nbsp; - &nbsp;<span className="text-xl">ABOUT</span>&nbsp; - &nbsp;CLICK TO LEARN MORE&nbsp; - &nbsp;<span className="text-xl">ABOUT</span>&nbsp; - &nbsp;CLICK TO LEARN MORE&nbsp; - &nbsp;<span className="text-xl">ABOUT</span>&nbsp;
+                  Hello
               </motion.span>
             </div>
           </div>

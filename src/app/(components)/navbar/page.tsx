@@ -41,7 +41,7 @@ const Navbar = () => {
                             <JumpingText text='Kaleb Maulding'/>
                         </Link>
                     </li>
-                    <motion.li className="lg:hidden cursor-pointer mr-3" id='hamburger-menu' onClick={handleClick}>
+                    <motion.li className="md:hidden cursor-pointer mr-3" id='hamburger-menu' onClick={handleClick}>
                         <motion.span className="line line-1" animate={isOpen ? {
                             rotateZ: 45,
                             translateX: 3,
@@ -63,9 +63,9 @@ const Navbar = () => {
                             opacity: 1,
                         }}/>
                     </motion.li>
-                    <div className='hidden lg:flex gap-16 justify-center items-center'>
+                    <div className='hidden md:flex gap-10 justify-center items-center'>
                         <Link href={'/about'}>
-                            <motion.li className='flex pointer w-24 h-10 border-2 rounded-3xl font-medium text-xl border-mygray items-center justify-center' 
+                            <motion.li className='smallbutton' 
                                 whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                                 whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                                 animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -74,7 +74,7 @@ const Navbar = () => {
                             </motion.li>
                         </Link>
                         <Link href={'/projects'}>
-                            <motion.li className='flex pointer w-24 h-10 border-2 rounded-3xl font-medium text-xl border-mygray items-center justify-center ' 
+                            <motion.li className='bigbutton' 
                                 whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                                 whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                                 animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -83,7 +83,7 @@ const Navbar = () => {
                             </motion.li>
                         </Link>
                         <Link href={'/work'}>
-                            <motion.li className='flex pointer w-24 h-10 border-2 rounded-3xl font-medium text-xl border-mygray items-center justify-center' 
+                            <motion.li className='smallbutton' 
                                 whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                                 whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                                 animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -92,7 +92,7 @@ const Navbar = () => {
                             </motion.li>
                         </Link>
                         <Link href={'/contact'}>
-                            <motion.li className='flex pointer w-24 h-10 border-2 rounded-3xl font-medium text-xl border-mygray items-center justify-center mr-3' 
+                            <motion.li className='bigbutton mr-3' 
                                 whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                                 whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                                 animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -102,7 +102,7 @@ const Navbar = () => {
                         </Link>
                     </div>
                 </ol>
-                <motion.div className='flex fixed flex-col bg-white gap-3 left-0 top-20 w-full justify-center overflow-hidden items-center lg:hidden'
+                <motion.div className='flex fixed flex-col bg-white gap-3 left-0 top-20 w-full justify-center overflow-hidden items-center md:hidden'
                     initial={{ height: 0, opacity: 1 }}
                     animate={isOpen ? { height: '100vh', opacity: 1 } : { height: 0, opacity: 1 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
