@@ -51,6 +51,82 @@
     justify-content: center;
 }
 
+.hiddenmenu {
+    display: flex;
+    cursor: pointer;
+    width: 8rem;
+    height: 2rem;
+    border-bottom: 6px;
+    border-radius: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-color: #5C5C5C;
+    align-items: center;
+    justify-content: center;
+}
+
+.projectimage {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+}
+
+.imagesize {
+    display: flex;
+    flex-direction: column;
+    width: 26em;
+    height: 18em;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectcard {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 200px;
+    flex-direction: column;
+    border-width: 2px;
+    border-color:rgba(100, 190, 90, 100)
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.projectcard-image {
+    margin-top: 10px;
+    width: 90%;
+    height: 200px; 
+    object-fit: cover;
+    border-width: 2px;
+    border-color:rgba(100, 190, 90, 100)
+}
+
+.projectcard h3 {
+    margin: 15px 15px 10px;
+    font-size: 1.2rem;
+    border-width: 2px;
+    border-color:rgba(100, 190, 90, 100)
+}
+
+.projectcard p {
+    margin: 0 15px 15px;
+    font-size: 0.9rem;
+    color: #666;
+    border-width: 2px;
+    border-color:rgba(100, 190, 90, 100)
+}
+
 .paradose {
     font-family: 'Paradose', sans-serif;
     color: #5C5C5C;

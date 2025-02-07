@@ -29,14 +29,14 @@ const Navbar = () => {
     })
 
     return (
-        <motion.div className='flex fixed w-full justify-center items-center bg-white opacity-95 h-20 xl:h-24'
+        <motion.div className='flex fixed w-full justify-center items-center bg-white opacity-95 h-20 xl:h-24 z-10'
             initial={{ y: 0 }}
             animate={{ y: scrollDirection === "down" ? '-100%' : 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             >
             <div className='flex w-full h-full'>
-                <ol className='flex h-full w-full items-center justify-between xl:mr-10'>
-                    <li className='ml-3 text-3xl flex sm:text-4xl paradose xl:ml-6 xl:text-5xl items-center justify-center mb-1 lg:mb-8'>
+                <ol className='flex h-full w-full items-center justify-between xl:mr-20'>
+                    <li className='ml-3 text-3xl flex sm:text-4xl paradose xl:ml-20 xl:text-5xl items-center justify-center mb-1 lg:mb-8'>
                         <Link href={'/'}>
                             <JumpingText text='Kaleb Maulding'/>
                         </Link>
@@ -108,7 +108,7 @@ const Navbar = () => {
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
                     >
                     <Link href={'/about'}>
-                        <motion.li className='button mt-3' 
+                        <motion.li className='hiddenmenu' 
                             whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                             whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                             animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -117,7 +117,7 @@ const Navbar = () => {
                         </motion.li>
                     </Link>
                     <Link href={'/projects'}>
-                        <motion.li className='button' 
+                        <motion.li className='hiddenmenu' 
                             whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                             whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                             animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -126,7 +126,7 @@ const Navbar = () => {
                         </motion.li>
                     </Link>
                     <Link href={'/work'}>
-                        <motion.li className='button' 
+                        <motion.li className='hiddenmenu' 
                             whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                             whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                             animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
@@ -135,7 +135,7 @@ const Navbar = () => {
                         </motion.li>
                     </Link>
                     <Link href={'/contact'}>
-                        <motion.li className='button mb-3' 
+                        <motion.li className='hiddenmenu mb-36' 
                             whileHover={{ scale: 1.11, color: '#048A81', transition: { duration: 0.1, ease: 'easeInOut'  } }}
                             whileTap={{ scale: 0.9,  borderColor: '#048A81', transition: { duration: 0.1, ease: 'easeInOut' } }}
                             animate={{ color: '#5C5C5C', transition: { duration: 0.01, ease: 'easeInOut' } }}
