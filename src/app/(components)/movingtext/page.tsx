@@ -4,14 +4,14 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 const MovingText = ({
         href = '/about',
-        text = 'CLICK TO LEARN MORE - ABOUT - CLICK TO LEARN MORE',
+        text = 'CLICK TO LEARN MORE ABOUT ME',
         initialX = '0%',
         animateX = '-100%',
     }) => {
 
     return ( 
         <Link href={href}>
-          <motion.div className="relative w-full overflow-hidden z-0">
+          <motion.div className="relative w-full h-full overflow-hidden z-0">
             <div className="flex whitespace-nowrap">
               <motion.span 
                 className="flex min-w-full h-20 border-y-2 border-x-0 border-black justify-center items-center" initial={{ x: initialX }} animate={{ x: animateX }}

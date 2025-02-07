@@ -65,8 +65,19 @@
     justify-content: center;
 }
 
+.projecttitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    margin-top: 10px;
+    width: 12em;
+    height: 3em;
+}
+
 .projectimage {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,8 +87,8 @@
 .imagesize {
     display: flex;
     flex-direction: column;
-    width: 26em;
-    height: 18em;
+    width: 18em;
+    height: 20.8em;
     justify-content: center;
     align-items: center;
 }
@@ -85,7 +96,7 @@
 .projectcard {
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(240, 46, 170, 0.7);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -93,38 +104,7 @@
     width: 200px;
     flex-direction: column;
     border-width: 2px;
-    border-color:rgba(100, 190, 90, 100)
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.projectcard-image {
-    margin-top: 10px;
-    width: 90%;
-    height: 200px; 
-    object-fit: cover;
-    border-width: 2px;
-    border-color:rgba(100, 190, 90, 100)
-}
-
-.projectcard h3 {
-    margin: 15px 15px 10px;
-    font-size: 1.2rem;
-    border-width: 2px;
-    border-color:rgba(100, 190, 90, 100)
-}
-
-.projectcard p {
-    margin: 0 15px 15px;
-    font-size: 0.9rem;
-    color: #666;
-    border-width: 2px;
-    border-color:rgba(100, 190, 90, 100)
+    border-color: rgba(100, 190, 90, 100)
 }
 
 .paradose {

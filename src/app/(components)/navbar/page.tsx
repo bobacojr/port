@@ -36,7 +36,7 @@ const Navbar = () => {
             >
             <div className='flex w-full h-full'>
                 <ol className='flex h-full w-full items-center justify-between xl:mr-20'>
-                    <li className='ml-3 text-3xl flex sm:text-4xl paradose xl:ml-20 xl:text-5xl items-center justify-center mb-1 lg:mb-8'>
+                    <li className='ml-3 text-3xl flex sm:text-4xl paradose xl:ml-11 xl:text-5xl items-center justify-center mb-1 lg:mb-8'>
                         <Link href={'/'}>
                             <JumpingText text='Kaleb Maulding'/>
                         </Link>
