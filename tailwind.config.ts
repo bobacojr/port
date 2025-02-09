@@ -9,12 +9,17 @@ export default {
   theme: {
     extend: {
       screens: {
-        '3xl': '100rem',
+        'xl.5': '90rem',
+        '3xl': '110rem',
       },
       fontSize: {
+        '6.5xl': '4rem',
+        '7.5xl': '5rem',
         '8.5xl': '6.5rem',
         '10xl': '9rem',
+        '10.5xl': '9.5rem',
         '11xl': '10rem',
+        '11.25xl': '10.25rem',
         '12xl': '11rem',
         '13xl': '12rem',
         '14xl': '13rem',

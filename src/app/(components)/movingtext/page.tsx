@@ -14,12 +14,12 @@ const MovingText = ({
           <motion.div className="relative w-full h-full overflow-hidden z-0">
             <div className="flex whitespace-nowrap">
               <motion.span 
-                className="flex min-w-full h-20 border-y-2 border-x-0 border-black justify-center items-center" initial={{ x: initialX }} animate={{ x: animateX }}
+                className="flex min-w-full h-16 border-y-2 border-x-0 border-black justify-center items-center" initial={{ x: initialX }} animate={{ x: animateX }}
                 transition={{ duration: 10, repeat: Infinity, repeatType: 'loop', ease: 'linear'}}>
                   {text}
               </motion.span>
               <motion.span 
-                className="flex min-w-full h-20 border-y-2 border-x-0 border-black justify-center items-center" initial={{ x: initialX }} animate={{ x: animateX }}
+                className="flex min-w-full h-16 border-y-2 border-x-0 border-black justify-center items-center" initial={{ x: initialX }} animate={{ x: animateX }}
                 transition={{ duration: 10, repeat: Infinity, repeatType: 'loop', ease: 'linear'}}>
                   {text}
               </motion.span>
