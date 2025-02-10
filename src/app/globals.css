@@ -23,9 +23,107 @@
     src: url('/WsParadoseRegular.ttf')format('truetype');
 }
 
-.tilt-root {
-    transform-style: preserve-3d;
+/* Start of Target SVG animation */
+.target-animated-svg path,
+.target-animated-svg polyline {
+    stroke-dasharray: 1700;
+    stroke-dashoffset: 1700;
+    animation: draw 4s forwards;
+    fill-opacity: 0;
 }
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fillFade {
+    from {
+        fill: #CC0000;
+        fill-opacity: 0;
+    }
+    to {
+        fill: #CC0000;
+        fill-opacity: 1;
+    }
+}
+
+.target-animated-svg path,
+.target-animated-svg polyline {
+    animation: 
+        draw 4s forwards,
+        fillFade 1s ease 4s forwards;
+}
+/* End of Target SVG animation */
+
+/* Start of E2open SVG animation */
+.e2-animated-svg path,
+.e2-animated-svg polyline {
+    stroke-dasharray: 1700;
+    stroke-dashoffset: 1700;
+    animation: draw2 4s forwards;
+    fill-opacity: 0;
+}
+
+@keyframes draw2 {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fillFade2 {
+    from {
+        fill: #282828;
+        fill-opacity: 0;
+    }
+    to {
+        fill: #282828;
+        fill-opacity: 1;
+    }
+}
+
+.e2-animated-svg path,
+.e2-animated-svg polyline {
+    animation: 
+        draw2 4s forwards,
+        fillFade2 1s ease 4s forwards;
+}
+/* End of E2open SVG animation */
+
+/* Start of GFS SVG animation */
+.GFS-animated-svg path,
+.GFS-animated-svg polyline {
+    stroke-dasharray: 1700;
+    stroke-dashoffset: 1700;
+    animation: draw3 4s forwards;
+    fill-opacity: 0;
+}
+
+@keyframes draw3 {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fillFade3 {
+    from {
+        fill: #282828;
+        fill-opacity: 0;
+    }
+    to {
+        fill: #282828;
+        fill-opacity: 0;
+    }
+}
+
+.GFS-animated-svg path,
+.GFS-animated-svg g {
+    animation: 
+        draw3 4s forwards,
+        fillFade3 1s ease 4s forwards;
+}
+/* End of GFS SVG animation */
 
 .smallbutton {
     display: flex;

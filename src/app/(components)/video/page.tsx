@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from "motion/react";
-import Tilt from 'react-parallax-tilt';
 
 const Video = () => {
 

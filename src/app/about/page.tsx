@@ -2,18 +2,24 @@
 import React from 'react';
 import { motion } from "motion/react";
 import NAVBAR from "../(components)/navbar/page";
-import * as variants from "../animationvariants/page";
+import * as variants from "../(components)/animationvariants/page";
 
 const About = () => {
-    return ( 
-        <div>
-           <motion.div className="flex w-full h-20 xl:h-24 items-center justify-center" id="navbar-container" variants={variants.navbarAnimationVariant} initial='initial' animate='animate'>
-                <NAVBAR />
-            </motion.div>
+    return (
+        <motion.div
+                initial={{ opacity: 0 }} // Initial state (hidden)
+                animate={{ opacity: 1 }} // Animate to fully visible
+                exit={{ opacity: 0 }} // Exit state (hidden)
+                transition={{ duration: 0.5 }} // Animation duration
+                >
             <div>
-                About
+                <motion.div className="flex w-full h-20 xl:h-24 items-center justify-center" id="navbar-container" variants={variants.navbarAnimationVariant} initial='initial' animate='animate'>
+                    <NAVBAR />
+                </motion.div>
+                <h1>About Page</h1>
+                <p>This is the About page.</p>
             </div>
-        </div>
+        </motion.div>
      );
 }
  

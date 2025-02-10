@@ -100,3 +100,25 @@ export const projectCardVariant = {
     }
   }
 }
+
+export const targetPathVariants = {
+  hidden: { 
+    pathLength: 0, 
+    fillOpacity: 0 
+  },
+  visible: (i: number) => ({
+    pathLength: 1,
+    fillOpacity: 1,
+    transition: {
+        pathLength: { 
+          duration: 4, 
+          ease: "easeInOut" 
+        },
+        fillOpacity: { 
+          duration: 1, 
+          ease: "easeInOut", 
+          delay: 3 
+        }
+      }
+  })
+};

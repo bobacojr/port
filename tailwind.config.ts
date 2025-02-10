@@ -13,8 +13,11 @@ export default {
         '3xl': '110rem',
       },
       fontSize: {
+        '4.5xl': '2.8rem',
+        '6.2xl': '3.8rem',
         '6.5xl': '4rem',
         '7.5xl': '5rem',
+        '7.8xl': '5.6em',
         '8.5xl': '6.5rem',
         '10xl': '9rem',
         '10.5xl': '9.5rem',

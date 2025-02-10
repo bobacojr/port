@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import { motion } from "motion/react";
 import NAVBAR from "../(components)/navbar/page";
-import * as variants from "../animationvariants/page";
+import * as variants from "../(components)/animationvariants/page";
 
 const Work = () => {
     return ( 
