@@ -1,15 +1,60 @@
+// @ts-nocheck
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import React from 'react';
-import motion from 'motion/react';
+gsap.registerPlugin(ScrollTrigger) 
 
-const E2SVG = () => {
-    
+const E2SVG = ({ yScrollValue = 0, onComplete }) => {
+
+    const svgRef = useRef(null);
+
+    useEffect(() => {
+        const svgElement = svgRef.current;
+
+        // Select the paths and polylines within the SVG
+        const paths = svgElement.querySelectorAll('path');
+
+        // Set initial styles
+        gsap.set(paths, {
+            strokeDasharray: 1700,
+            strokeDashoffset: 1700,
+            fillOpacity: 0
+        });
+
+        // Create the animation timeline
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: svgElement,
+                start: `top+=${yScrollValue} center`, // Adjust this value to control when the animation starts
+            },
+            onComplete: onComplete
+        });
+
+        // Add the drawing animation
+        tl.to(paths, {
+            strokeDashoffset: 0,
+            duration: 2,
+            ease: 'none',
+            onStart: onComplete
+        });
+
+        // Add the fill fade animation
+        tl.to(paths, {
+            fill: '#282828',
+            fillOpacity: 1,
+            duration: 0.5,
+            ease: 'power1.inOut',
+        });
+
+    }, [yScrollValue, onComplete]);
+
     return ( 
         <svg 
             version="1.2" 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 1566 406"
-            className='e2-animated-svg'>
+            ref={svgRef}>
             <path
                 fill="none" 
                 stroke="#282828" 

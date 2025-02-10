@@ -1,9 +1,55 @@
-
-import React from 'react';
+//@ts-nocheck
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import motion from 'motion/react';
 
-const TargetSVG = () => {
-    
+gsap.registerPlugin(ScrollTrigger) 
+
+const TargetSVG = ({ yScrollValue = 0, onComplete }) => {
+
+    const svgRef = useRef(null);
+
+    useEffect(() => {
+        const svgElement = svgRef.current;
+
+        // Select the paths and polylines within the SVG
+        const paths = svgElement.querySelectorAll('path, polyline');
+
+        // Set initial styles
+        gsap.set(paths, {
+            strokeDasharray: 1700,
+            strokeDashoffset: 1700,
+            fillOpacity: 0
+        });
+
+        // Create the animation timeline
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: svgElement,
+                start: `top+=${yScrollValue} center`, // Adjust this value to control when the animation starts
+            },
+            onComplete: onComplete // Call the onComplete callback once the animation completes
+        });
+
+        // Add the drawing animation
+        tl.to(paths, {
+            strokeDashoffset: 0,
+            duration: 2,
+            ease: 'none',
+            onStart: onComplete
+        });
+
+        // Add the fill fade animation
+        tl.to(paths, {
+            fill: '#CC0000',
+            fillOpacity: 1,
+            duration: 0.5,
+            ease: 'power1.inOut'
+        });
+
+    }, [yScrollValue, onComplete]);
+
     return ( 
         <svg version="1.2" 
             baseProfile="tiny" 
@@ -11,7 +57,7 @@ const TargetSVG = () => {
             xmlns="http://www.w3.org/2000/svg" 
             x="0px" y="0px" 
             viewBox="0 0 1911.1 386.9" 
-            className='target-animated-svg'>
+            ref={svgRef}>
             <g>
                 <g>
                     <path 
