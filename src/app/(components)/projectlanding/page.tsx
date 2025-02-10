@@ -54,7 +54,7 @@ const ProjectLanding = () => {
                         initial='initial' 
                         animate={hasProjectCardAnimated ? 'animate' : 'initial'}
                         >
-                        <img src={"./TortilleriaPhoto.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em]"/>
+                        <img src={"./ThreeJS.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em]"/>
                         <h1 className="projecttitle">ThreeJS & WebGL Scene</h1>
                     </motion.div>
                 </div>
