@@ -2,13 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+.parallax-effect-img {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+  
+    .inner-element {
+      transform: translateZ(40px) scale(0.8);
+    }
+}
+
+.parallax-effect-img:hover .inner-element {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
 @font-face {
     font-family: 'Grith';
     src: url('/Grith-gw3z1.otf');
 }
 
 @font-face {
-    font-family: 'Sagewold';
+    font-family: 'Aeogo Pixellated';
+    src: url('/AeogoPixellated-DYYEd.ttf')format('truetype');
+}
+
+@font-face {
+    font-family: 'Viable Logic Thin Personal Use';
+    src: url('/ViableLogicThinPersonalUse-GOZ7m.otf')
+}
+
+@font-face {
+    font-family: 'Sageworld';
     src: url('/Sageworld-ZpwvJ.ttf');
 }
 
@@ -73,17 +96,27 @@
     margin-top: 10px;
     width: 12em;
     height: 3em;
+    font-size: 14px;
 }
 
 .worktitle {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 14px;
+    border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     margin-top: 10px;
-    width: 12em;
-    height: 2em;
+    width: 8em;
+    height: 1.6em;
+    font-size: 0.9em;
+}
+
+#gfs-title {
+    font-family: 'Sageworld';
+}
+
+#e2-title {
+    font-family: 'Sageworld';
 }
 
 .projectimage {

@@ -14,79 +14,47 @@ const GFSSVG = ({ yScrollValue = 0, onComplete }) => {
 
     useEffect(() => {
         const svgElement = svgRef.current;
-
-        // Select the paths and polylines within the SVG
-        const gfsGrayPaths = svgElement.querySelectorAll('.gfs-gray');
-        const gfsGrayWordPaths = svgElement.querySelectorAll('.gfs-gray-word');
-        const gfsRedWordPaths = svgElement.querySelectorAll('.gfs-red-word');
-        const gfsRedPaths = svgElement.querySelectorAll('.gfs-red');
-
-        // Set initial styles
-        gsap.set([gfsGrayPaths, gfsGrayWordPaths, gfsRedWordPaths, gfsRedPaths], {
+    
+        // Select paths by class
+        const grayPaths = svgElement.querySelectorAll('.gfs-gray, .gfs-gray-word');
+        const redWordPaths = svgElement.querySelectorAll('.gfs-red-word');
+        const redPaths = svgElement.querySelectorAll('.gfs-red');
+    
+        gsap.set([grayPaths, redWordPaths, redPaths], {
             strokeDasharray: 1000,
             strokeDashoffset: 1000,
             fillOpacity: 0
         });
 
         // Create the animation timeline
-        const tlGray = gsap.timeline({
+        const masterTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: svgElement,
-                start: `top+=${yScrollValue} center`,
+                start: `top-=${200} center`,
             },
             onComplete: onComplete
         });
-        const tlGrayWord = gsap.timeline({
-            scrollTrigger: {
-                trigger: svgElement,
-                start: `top+=${yScrollValue} center`,
-            }
-        });
-        const tlRedWord = gsap.timeline({
-            scrollTrigger: {
-                trigger: svgElement,
-                start: `top+=${yScrollValue} center`,
-            }
-        });
-        const tlRed = gsap.timeline({
-            scrollTrigger: {
-                trigger: svgElement,
-                start: `top+=${yScrollValue} center`,
-            }
-        });
 
-        // Add the drawing/fill animations
-        tlGray.to(gfsGrayPaths, {
-            strokeDashoffset: 0,
-            duration: 6,
-            ease: 'none'
-        });
-        tlGrayWord.to(gfsGrayWordPaths, {
-            strokeDashoffset: 0,
-            duration: 6,
-            ease: 'none'
-        }).to(gfsGrayWordPaths, {
-            fill: '#505050',
-            fillOpacity: 1,
-            duration: 0.5,
-            ease: 'power1.inOut'
-        }, "-=4"); // Syncs the fill timing with other SVGs
-        tlRedWord.to(gfsRedWordPaths, {
-            strokeDashoffset: 0,
-            duration: 6,
-            ease: 'none'
-        }).to(gfsRedWordPaths, {
-            fill: '#C80000',
-            fillOpacity: 1,
-            duration: 0.5,
-            ease: 'power1.inOut'
-        }, "-=4"); // Syncs the fill timing with other SVGs
-        tlRed.to(gfsRedPaths, {
-            strokeDashoffset: 0,
-            duration: 6,
-            ease: 'none',
-            onStart: onComplete
-        });
+        // Animate paths
+        masterTimeline
+            .to([grayPaths, redWordPaths, redPaths], {
+                strokeDashoffset: 0,
+                duration: 6,
+                ease: 'none',
+                onStart: onComplete // Call onComplete at the start of the animation
+            })
+            .to(grayPaths, {
+                fill: '#505050',
+                fillOpacity: 1,
+                duration: 0.5,
+                ease: 'power1.inOut',
+            }, "-=4")
+            .to(redWordPaths, {
+                fill: '#C80000',
+                fillOpacity: 1,
+                duration: 0.5,
+                ease: 'power1.inOut',
+            }, "-=4");
     }, [yScrollValue, onComplete]);
      
     return ( 

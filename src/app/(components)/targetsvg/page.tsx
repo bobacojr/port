@@ -24,33 +24,29 @@ const TargetSVG = ({ yScrollValue = 0, onComplete }) => {
         });
 
         // Create the animation timeline
-        const tl = gsap.timeline({
+        const masterTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: svgElement,
-                start: `top+=${yScrollValue} center`, // Adjust this value to control when the animation starts
+                start: `top-=${200} center`,
             },
-            onComplete: onComplete // Call the onComplete callback once the animation completes
+            onComplete: onComplete // Call the onComplete callback when the timeline finishes
         });
 
-        // Add the drawing animation
-        tl.to(paths, {
-            strokeDashoffset: 0,
-            duration: 2,
-            ease: 'none',
-            onStart: onComplete
-        });
+        masterTimeline
+            .to(paths, {
+                strokeDashoffset: 0,
+                duration: 2,
+                ease: 'none',
+                onStart: onComplete
+            }).to(paths, {
+                fill: '#CC0000',
+                fillOpacity: 1,
+                duration: 0.5,
+                ease: 'power1.inOut'
+            });
+        }, [yScrollValue, onComplete]);
 
-        // Add the fill fade animation
-        tl.to(paths, {
-            fill: '#CC0000',
-            fillOpacity: 1,
-            duration: 0.5,
-            ease: 'power1.inOut'
-        });
-
-    }, [yScrollValue, onComplete]);
-
-    return ( 
+    return (
         <svg version="1.2" 
             baseProfile="tiny" 
             id="Layer_1" 

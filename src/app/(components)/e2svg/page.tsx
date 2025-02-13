@@ -6,48 +6,42 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger) 
 
 const E2SVG = ({ yScrollValue = 0, onComplete }) => {
-
     const svgRef = useRef(null);
 
     useEffect(() => {
         const svgElement = svgRef.current;
 
         // Select the paths and polylines within the SVG
-        const paths = svgElement.querySelectorAll('path');
+        const e2Paths = svgElement.querySelectorAll('.svg');
 
-        // Set initial styles
-        gsap.set(paths, {
+        gsap.set(e2Paths, {
             strokeDasharray: 1700,
             strokeDashoffset: 1700,
             fillOpacity: 0
         });
 
         // Create the animation timeline
-        const tl = gsap.timeline({
+        const masterTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: svgElement,
-                start: `top+=${yScrollValue} center`, // Adjust this value to control when the animation starts
+                start: `top-=${200} center`,
             },
-            onComplete: onComplete
+            onComplete: onComplete // Call the onComplete callback when the timeline finishes
         });
 
-        // Add the drawing animation
-        tl.to(paths, {
-            strokeDashoffset: 0,
-            duration: 2,
-            ease: 'none',
-            onStart: onComplete
-        });
-
-        // Add the fill fade animation
-        tl.to(paths, {
-            fill: '#282828',
-            fillOpacity: 1,
-            duration: 0.5,
-            ease: 'power1.inOut',
-        });
-
-    }, [yScrollValue, onComplete]);
+        masterTimeline
+            .to(e2Paths, {
+                strokeDashoffset: 0,
+                duration: 2,
+                ease: 'none',
+                onStart: onComplete
+            }).to(e2Paths, {
+                fill: '#282828',
+                fillOpacity: 1,
+                duration: 0.5,
+                ease: 'power1.inOut',
+            });
+        }, [yScrollValue, onComplete]);
 
     return ( 
         <svg 
@@ -56,6 +50,7 @@ const E2SVG = ({ yScrollValue = 0, onComplete }) => {
             viewBox="0 0 1566 406"
             ref={svgRef}>
             <path
+                className='svg'
                 fill="none" 
                 stroke="#282828" 
                 strokeWidth="4" 
@@ -65,6 +60,7 @@ const E2SVG = ({ yScrollValue = 0, onComplete }) => {
                     49.9zm176.8-88.5c4.5-54.4 47-93 112-93 69.4 0 109.7 45.4 109.7 95.3 0 43.1-17.9 71.2-55 104.3l-70.8 63.6h132.5v61.2h-228.4c0-39.1 
                     16.1-76.4 44.4-102.8l74.3-69.6c23.3-21.8 31.3-36.2 31.3-54.4 0-20.4-8.9-40.8-38.1-40.8-20.1 0-37.2 11.3-39.4 36.2z"/>
             <path
+                className='svg'
                 fill="none" 
                 stroke="#282828" 
                 strokeWidth="4" 

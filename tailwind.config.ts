@@ -38,6 +38,7 @@ export default {
         foreground: "var(--foreground)",
         'myteal': '#048A81',
         'mygray': '#5C5C5C',
+        'gfsred': '#C80000',
       },
     },
   },

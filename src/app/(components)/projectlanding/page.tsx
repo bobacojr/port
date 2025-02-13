@@ -26,11 +26,11 @@ const ProjectLanding = () => {
         <div className="flex flex-col w-full h-full">
             <motion.div className="flex flex-col w-full justify-center items-center mb-6">
                 <div className="flex w-full h-16 justify-center items-center mt-6">
-                    <motion.span className="flex h-full w-full items-center justify-center text-5xl thernaly text-black" variants={variants.projectHighlightVariant} initial="initial" animate={hasProjectHighlightAnimated ? 'animate' : 'initial'}>
+                    <motion.span className="flex h-full w-full items-center justify-center text-4xl sm:text-5xl lg:text-6xl thernaly text-black" variants={variants.projectHighlightVariant} initial="initial" animate={hasProjectHighlightAnimated ? 'animate' : 'initial'}>
                         Project Highlights
                     </motion.span>
                 </div>
-                <div className="flex flex-col justify-center items-center gap-8 2xl:flex-row lg:gap-16 mt-3">
+                <div className="flex flex-col justify-center items-center gap-8 lg:gap-16 mt-3">
                     <div className="flex flex-col sm:flex-row gap-8 lg:gap-16">
                         <motion.div className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em]" 
                             variants={variants.projectCardVariant} 
