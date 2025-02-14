@@ -5,7 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger) 
 
-const E2SVG = ({ yScrollValue = 0, onComplete }) => {
+const E2SVG = ({ yScrollValue = 0, beginAnimation }) => {
     const svgRef = useRef(null);
 
     useEffect(() => {
@@ -25,8 +25,9 @@ const E2SVG = ({ yScrollValue = 0, onComplete }) => {
             scrollTrigger: {
                 trigger: svgElement,
                 start: `top-=${200} center`,
+                toggleActions: "play none none reverse"
             },
-            onComplete: onComplete // Call the onComplete callback when the timeline finishes
+            beginAnimation: beginAnimation
         });
 
         masterTimeline
@@ -34,14 +35,17 @@ const E2SVG = ({ yScrollValue = 0, onComplete }) => {
                 strokeDashoffset: 0,
                 duration: 2,
                 ease: 'none',
-                onStart: onComplete
+                onStart: beginAnimation
             }).to(e2Paths, {
                 fill: '#282828',
                 fillOpacity: 1,
                 duration: 0.5,
                 ease: 'power1.inOut',
             });
-        }, [yScrollValue, onComplete]);
+            return () => {
+                masterTimeline.kill();
+            };
+        }, [yScrollValue, beginAnimation]);
 
     return ( 
         <svg 

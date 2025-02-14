@@ -122,3 +122,48 @@ export const targetPathVariants = {
       }
   })
 };
+
+export const projectCardLeftVariant = {
+  initial: {
+    x: '-300%',
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeInOut"
+    }
+  }
+}
+
+export const projectCardRightVariant = {
+  initial: {
+    x: '300%',
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeInOut"
+    }
+  }
+}
+
+export const projectCardBottomVariant = {
+  initial: {
+    y: '100%',
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeInOut"
+    }
+  }
+}

@@ -34,7 +34,7 @@ const AboutLanding = () => {
     }, [words2]);
 
     return ( 
-        <div className="flex flex-col w-full overflow-x-hidden">
+        <div className="flex flex-col w-full h-full overflow-x-hidden">
             <div className="flex flex-row">
                 <div className="ml-2 flex w-full h-full flex-col xl:ml-14 3xl:ml-20">
                     <motion.span className="sageworld text-5xl sm:text-6xl md:text-7xl lg:text-7.5xl 3xl:text-8.5xl text-myteal" 
@@ -59,7 +59,7 @@ const AboutLanding = () => {
                             initial='initial' 
                             animate='animate' 
                             custom={1.5}
-                            exit={{ x: '100%' }}
+                            exit={{ x: '300%' }}
                             transition={{ duration: 1 }}
                             >
                             {currentWord1}
@@ -83,7 +83,7 @@ const AboutLanding = () => {
                         initial='initial' 
                         animate='animate' 
                         custom={2.5}
-                        exit={{ x: '-300%' }}
+                        exit={{ x: '-400%' }}
                         transition={{ duration: 1 }}
                         >
                         {currentWord2}

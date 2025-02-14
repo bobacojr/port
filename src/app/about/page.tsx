@@ -7,8 +7,8 @@ import * as variants from "../(components)/animationvariants/page";
 const About = () => {
     return (
         <motion.div
-                initial={{ opacity: 0 }} // Initial state (hidden)
-                animate={{ opacity: 1 }} // Animate to fully visible
+                initial={{ opacity: 0, x: '-100%' }} // Initial state (hidden)
+                animate={{ opacity: 1, x: 0 }} // Animate to fully visible
                 exit={{ opacity: 0 }} // Exit state (hidden)
                 transition={{ duration: 0.5 }} // Animation duration
                 >

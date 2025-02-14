@@ -91,7 +91,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 14px;
+    border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
     margin-top: 10px;
     width: 12em;
@@ -106,9 +106,9 @@
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     margin-top: 10px;
-    width: 8em;
-    height: 1.6em;
-    font-size: 0.9em;
+    width: 9.4em;
+    height: 2em;
+    font-size: 14px;
 }
 
 #gfs-title {

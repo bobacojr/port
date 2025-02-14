@@ -6,7 +6,7 @@ import motion from 'motion/react';
 
 gsap.registerPlugin(ScrollTrigger) 
 
-const TargetSVG = ({ yScrollValue = 0, onComplete }) => {
+const TargetSVG = ({ yScrollValue = 0, beginAnimation }) => {
 
     const svgRef = useRef(null);
 
@@ -28,8 +28,9 @@ const TargetSVG = ({ yScrollValue = 0, onComplete }) => {
             scrollTrigger: {
                 trigger: svgElement,
                 start: `top-=${200} center`,
+                toggleActions: "play none none reverse"
             },
-            onComplete: onComplete // Call the onComplete callback when the timeline finishes
+            beginAnimation: beginAnimation
         });
 
         masterTimeline
@@ -37,14 +38,17 @@ const TargetSVG = ({ yScrollValue = 0, onComplete }) => {
                 strokeDashoffset: 0,
                 duration: 2,
                 ease: 'none',
-                onStart: onComplete
+                onStart: beginAnimation
             }).to(paths, {
                 fill: '#CC0000',
                 fillOpacity: 1,
                 duration: 0.5,
                 ease: 'power1.inOut'
             });
-        }, [yScrollValue, onComplete]);
+            return () => {
+                masterTimeline.kill();
+            };
+        }, [yScrollValue, beginAnimation]);
 
     return (
         <svg version="1.2" 

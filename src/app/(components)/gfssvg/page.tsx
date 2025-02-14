@@ -6,7 +6,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger)
 
-const GFSSVG = ({ yScrollValue = 0, onComplete }) => {
+const GFSSVG = ({ yScrollValue = 0, beginAnimation }) => {
 
     // Colors: #505050, #C80000,
 
@@ -31,8 +31,9 @@ const GFSSVG = ({ yScrollValue = 0, onComplete }) => {
             scrollTrigger: {
                 trigger: svgElement,
                 start: `top-=${200} center`,
+                toggleActions: "play none none reverse"
             },
-            onComplete: onComplete
+            beginAnimation: beginAnimation
         });
 
         // Animate paths
@@ -41,7 +42,7 @@ const GFSSVG = ({ yScrollValue = 0, onComplete }) => {
                 strokeDashoffset: 0,
                 duration: 6,
                 ease: 'none',
-                onStart: onComplete // Call onComplete at the start of the animation
+                onStart: beginAnimation
             })
             .to(grayPaths, {
                 fill: '#505050',
@@ -55,7 +56,10 @@ const GFSSVG = ({ yScrollValue = 0, onComplete }) => {
                 duration: 0.5,
                 ease: 'power1.inOut',
             }, "-=4");
-    }, [yScrollValue, onComplete]);
+            return () => {
+                masterTimeline.kill();
+            };
+    }, [yScrollValue, beginAnimation]);
      
     return ( 
         <svg 

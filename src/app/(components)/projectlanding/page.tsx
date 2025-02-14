@@ -1,69 +1,139 @@
 "use client"
-import React, { useState } from 'react';
-import * as variants from "../animationvariants/page";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import MOVINGTEXT from "../movingtext/page";
 import VIDEO from "../video/page";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const ProjectLanding = () => {
-    const hasProjectHighlightAnimated = useScrollAnimation(50);
-    const hasProjectCardAnimated = useScrollAnimation(100);
-    const hasMovingTextAnimated = useScrollAnimation(260);
+    // Refs for the elements to animate
+    const projectHighlightRef = useRef(null);
+    const projectCard1Ref = useRef(null);
+    const projectCard2Ref = useRef(null);
+    const projectCard3Ref = useRef(null);
+    const movingTextRef = useRef(null);
 
-    function useScrollAnimation(threshold = 50) {
-    const { scrollY } = useScroll();
-    const [hasAnimated, setHasAnimated] = useState(false);
+    // GSAP context for cleanup
+    const ctx = useRef<gsap.Context | null>(null);
 
-    useMotionValueEvent(scrollY, "change", (latest) => {
-        if (latest > threshold && !hasAnimated)  {
-            setHasAnimated(true);
-            }
+    useEffect(() => {
+        ctx.current = gsap.context(() => {
+            gsap.from(projectHighlightRef.current, {
+                opacity: 0,
+                y: 20,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: projectHighlightRef.current,
+                    start: "top+=200px 90%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse", // Play animation when in view, reverse when out of view
+                },
+            });
+
+            // Animation for the first project card (left)
+            gsap.from(projectCard1Ref.current, {
+                opacity: 0,
+                x: -100,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: projectCard1Ref.current,
+                    start: "top+=250px 90%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse",
+                },
+            });
+
+            // Animation for the second project card (right)
+            gsap.from(projectCard2Ref.current, {
+                opacity: 0,
+                x: 100,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: projectCard2Ref.current,
+                    start: "top+=250px 90%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse",
+                },
+            });
+
+            // Animation for the third project card (bottom)
+            gsap.from(projectCard3Ref.current, {
+                opacity: 0,
+                y: 100,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: projectCard3Ref.current,
+                    start: "top 90%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse",
+                },
+            });
+
+            // Animation for the moving text
+            gsap.from(movingTextRef.current, {
+                opacity: 0,
+                x: -100,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: movingTextRef.current,
+                    start: "top 95%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse",
+                },
+            });
         });
-        return hasAnimated;
-    }
 
-    return ( 
+        // Refresh ScrollTrigger on component mount
+        ScrollTrigger.refresh();
+
+        // Cleanup function to revert GSAP context
+        return () => {
+            if (ctx.current) { // Null check
+                ctx.current.revert(); // Reverts all GSAP animations and ScrollTriggers
+            }
+        };
+    }, []);
+
+    return (
         <div className="flex flex-col w-full h-full">
-            <motion.div className="flex flex-col w-full justify-center items-center mb-6">
-                <div className="flex w-full h-16 justify-center items-center mt-6">
-                    <motion.span className="flex h-full w-full items-center justify-center text-4xl sm:text-5xl lg:text-6xl thernaly text-black" variants={variants.projectHighlightVariant} initial="initial" animate={hasProjectHighlightAnimated ? 'animate' : 'initial'}>
+            <div className="flex flex-col w-full justify-center items-center mt-6 mb-6">
+                <div className="flex w-full h-16 justify-center items-center" ref={projectHighlightRef}>
+                    <span className="flex h-full w-full items-center justify-center text-4xl sm:text-5xl lg:text-6xl thernaly text-black">
                         Project Highlights
-                    </motion.span>
+                    </span>
                 </div>
-                <div className="flex flex-col justify-center items-center gap-8 lg:gap-16 mt-3">
-                    <div className="flex flex-col sm:flex-row gap-8 lg:gap-16">
-                        <motion.div className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em]" 
-                            variants={variants.projectCardVariant} 
-                            initial='initial' 
-                            animate={hasProjectCardAnimated ? 'animate' : 'initial'}
+                <div className="flex flex-col justify-center items-center gap-8 lg:gap-16 xl:gap-24 mt-8">
+                    <div className="flex flex-col sm:flex-row gap-8 lg:gap-16 xl:gap-24">
+                        <div
+                            className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"
+                            ref={projectCard1Ref}
                             >
-                            <img src={"./prodcon.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em]"/>
-                            <h1 className="projecttitle !w-[17em]">Producer/Consumer CPU Simulation</h1>
-                        </motion.div>
-                        <motion.div className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em]" 
-                            variants={variants.projectCardVariant} 
-                            initial='initial' 
-                            animate={hasProjectCardAnimated ? 'animate' : 'initial'}
+                            <img src={"./prodcon.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"/>
+                            <h1 className="worktitle sageworld !w-[18em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">Producer/Consumer CPU Simulation</h1>
+                        </div>
+                        <div
+                            className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[21em] xl:!w-[34em]"
+                            ref={projectCard2Ref}
                             >
-                            <img src={"./TortilleriaPhoto.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em]"/>
-                            <h1 className="projecttitle !w-[15em]">Tortilleria Y Taqueria Mi Tierra</h1>
-                        </motion.div>
+                            <img src={"./TortilleriaPhoto.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[21em] xl:!w-[34em]" />
+                            <h1 className="worktitle sageworld !w-[17em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">Tortilleria Y Taqueria Mi Tierra</h1>
+                        </div>
                     </div>
-                    <motion.div className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em]" 
-                        variants={variants.projectCardVariant} 
-                        initial='initial' 
-                        animate={hasProjectCardAnimated ? 'animate' : 'initial'}
+                    <div className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"
+                        ref={projectCard3Ref}
                         >
-                        <img src={"./ThreeJS.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em]"/>
-                        <h1 className="projecttitle">ThreeJS & WebGL Scene</h1>
-                    </motion.div>
+                        <img src={"./ThreeJS.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]" />
+                        <h1 className="worktitle sageworld !w-[12.4em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">ThreeJS & WebGL Scene</h1>
+                    </div>
                 </div>
-            </motion.div>
-            <motion.div variants={variants.textSlideVariant2} initial="initial" animate={hasMovingTextAnimated ? "animate" : "initial"}>
+            </div>
+            <div ref={movingTextRef}>
                 <MOVINGTEXT href="/projects" text="CLICK TO SEE MORE PROJECTS" initialX="-100%" animateX="0%" />
-            </motion.div>
+            </div>
         </div>
-     );
-}
- 
+    );
+};
+
 export default ProjectLanding;
