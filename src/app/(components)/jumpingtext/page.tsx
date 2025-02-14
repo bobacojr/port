@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import { easeInOut, motion } from 'motion/react';
 import { spring } from 'motion';

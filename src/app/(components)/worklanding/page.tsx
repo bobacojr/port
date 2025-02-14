@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation } from "motion/react";
 import TargetSVG from '../targetsvg/page';

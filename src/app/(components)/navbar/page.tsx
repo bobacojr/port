@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useRef, useState } from 'react';
 import { easeInOut, motion, useMotionValueEvent, useScroll } from 'motion/react';
 import JumpingText from '../jumpingtext/page';

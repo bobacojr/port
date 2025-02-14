@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion'; // Keep motion for button animations
 import emailjs from '@emailjs/browser';
