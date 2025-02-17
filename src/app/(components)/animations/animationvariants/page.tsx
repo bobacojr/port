@@ -1,6 +1,27 @@
 /* Animation Variants */
 
-import { spring } from "motion";
+import { delay, spring } from "motion";
+
+export const aboutVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1
+  },
+};
+
+export const aboutVariant1 = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      delay: 2.59
+    }
+  },
+};
 
 export const navbarAnimationVariant = {
   initial: {
@@ -52,6 +73,19 @@ export const bigWordVariant1 = {
         ease: "easeOut",
         },
     }),
+};
+
+export const projectPageVariant = {
+  initial: {
+    x: '-100%',
+  },
+  animate: (i: number) =>  ({
+    x: 0,
+    transition: {
+      duration: 0.8 * i,
+      ease: "easeOut",
+      },
+  }),
 };
 
 export const bigWordVariant2 = {

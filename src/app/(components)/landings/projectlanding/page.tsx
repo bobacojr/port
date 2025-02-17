@@ -2,8 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import MOVINGTEXT from "../movingtext/page";
-import VIDEO from "../video/page";
+import MOVINGTEXT from "../../animations/movingtext/page";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,21 +109,21 @@ const ProjectLanding = () => {
                             className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"
                             ref={projectCard1Ref}
                             >
-                            <img src={"./prodcon.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"/>
+                            <img src={"./pngs/prodcon.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"/>
                             <h1 className="worktitle sageworld !w-[18em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">Producer/Consumer CPU Simulation</h1>
                         </div>
                         <div
                             className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[21em] xl:!w-[34em]"
                             ref={projectCard2Ref}
                             >
-                            <img src={"./TortilleriaPhoto.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[21em] xl:!w-[34em]" />
+                            <img src={"./pngs/TortilleriaPhoto.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[21em] xl:!w-[34em]" />
                             <h1 className="worktitle sageworld !w-[17em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">Tortilleria Y Taqueria Mi Tierra</h1>
                         </div>
                     </div>
                     <div className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"
                         ref={projectCard3Ref}
                         >
-                        <img src={"./ThreeJS.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]" />
+                        <img src={"./pngs/ThreeJS.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]" />
                         <h1 className="worktitle sageworld !w-[12.4em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">ThreeJS & WebGL Scene</h1>
                     </div>
                 </div>

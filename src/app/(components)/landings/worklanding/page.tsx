@@ -1,11 +1,11 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation } from "motion/react";
-import TargetSVG from '../targetsvg/page';
-import E2SVG from '../e2svg/page';
-import GFSSVG from '../gfssvg/page';
-import * as variants from "../animationvariants/page";
-import MOVINGTEXT from '../movingtext/page';
+import TargetSVG from '../../svgs/targetsvg/page';
+import E2SVG from '../../svgs/e2svg/page';
+import GFSSVG from '../../svgs/gfssvg/page';
+import * as variants from "../../animations/animationvariants/page";
+import MOVINGTEXT from '../../animations/movingtext/page';
 
 const WorkLanding = () => {
 

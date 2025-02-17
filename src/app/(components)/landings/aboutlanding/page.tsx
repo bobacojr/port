@@ -1,8 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import * as variants from "../animationvariants/page";
+import * as variants from "../../animations/animationvariants/page";
 import { motion, AnimatePresence } from "motion/react";
-import MOVINGTEXT from "../movingtext/page";
+import MOVINGTEXT from '../../animations/movingtext/page';
 
 const AboutLanding = () => {
     const words1 = ["INNOVATOR", "ADAPTABLE", "PROACTIVE"];
@@ -42,7 +42,8 @@ const AboutLanding = () => {
                         initial='initial' 
                         animate='animate' 
                         custom={0.5}
-                        >CREATOR
+                        >
+                        CREATOR
                     </motion.span>
                     <motion.span className="thernaly text-4xl sm:text-5xl md:text-6xl lg:text-6.5xl 3xl:text-7.5xl" 
                         variants={variants.bigWordVariant1} 

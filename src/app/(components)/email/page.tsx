@@ -152,7 +152,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div ref={sectionRef} className="flex-col-reverse w-full h-full flex gap-10 overflow-hidden sm:items-center pb-11">
+    <div ref={sectionRef} id='contact' className="flex-col-reverse w-full h-full flex gap-10 overflow-hidden sm:items-center pb-11">
       <motion.div
         className="flex-[0.75] rounded-2xl px-11 mt-2"
       >

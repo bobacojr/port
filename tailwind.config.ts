@@ -39,6 +39,7 @@ export default {
         'myteal': '#048A81',
         'mygray': '#5C5C5C',
         'gfsred': '#C80000',
+        'chiblack': '#282828',
       },
     },
   },

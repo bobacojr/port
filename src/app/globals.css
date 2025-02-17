@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.overlay {
+    z-index: 9999;
+}
+
 .parallax-effect-img {
     transform-style: preserve-3d;
     transform: perspective(1000px);
@@ -17,32 +21,32 @@
 
 @font-face {
     font-family: 'Grith';
-    src: url('/Grith-gw3z1.otf');
+    src: url('/fonts/Grith-gw3z1.otf');
 }
 
 @font-face {
     font-family: 'Aeogo Pixellated';
-    src: url('/AeogoPixellated-DYYEd.ttf')format('truetype');
+    src: url('/fonts/AeogoPixellated-DYYEd.ttf')format('truetype');
 }
 
 @font-face {
     font-family: 'Viable Logic Thin Personal Use';
-    src: url('/ViableLogicThinPersonalUse-GOZ7m.otf')
-}
-
-@font-face {
-    font-family: 'Sageworld';
-    src: url('/Sageworld-ZpwvJ.ttf');
+    src: url('/fonts/ViableLogicThinPersonalUse-GOZ7m.otf')
 }
 
 @font-face {
     font-family: 'Thernaly';
-    src: url('/Thernaly-YqjWv.ttf');
+    src: url('/fonts/Thernaly-YqjWv.ttf');
 }
 
 @font-face {
     font-family: 'Paradose';
-    src: url('/WsParadoseRegular.ttf')format('truetype');
+    src: url('/fonts/WsParadoseRegular.ttf')format('truetype');
+}
+
+@font-face {
+    font-family: 'ChicagoFLF';
+    src: url('/fonts/ChicagoFLF.ttf')format('truetype');
 }
 
 .smallbutton {
@@ -117,6 +121,10 @@
 
 #e2-title {
     font-family: 'Sageworld';
+}
+
+#chi-title {
+    font-family: 'ChicagoFLF';
 }
 
 .projectimage {

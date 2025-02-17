@@ -6,17 +6,18 @@ import { useEffect, useRef, useState } from "react";
 import NAVBAR from "./(components)/navbar/page";
 import Link from "next/link";
 import SCROLLYTRACKER from "./(components)/yscrolltracker/page";
-import ABOUTLANDING from "./(components)/aboutlanding/page";
-import PROJECTLANDING from "./(components)/projectlanding/page";
-import WORKLANDING from "./(components)/worklanding/page";
+import ABOUTLANDING from "./(components)/landings/aboutlanding/page";
+import PROJECTLANDING from "./(components)/landings/projectlanding/page";
+import WORKLANDING from "./(components)/landings/worklanding/page";
 import EMAIL from "./(components)/email/page";
-import * as variants from "./(components)/animationvariants/page";
+import * as variants from "./(components)/animations/animationvariants/page";
 
 export default function Home() {
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
+        id='home'
         key="projects-page" // Unique key for the page
         className="flex flex-col w-full h-full overflow-x-hidden"
         initial={{ opacity: 0, y: 50 }} // Initial animation state
