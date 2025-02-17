@@ -1,6 +1,6 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react';
-import { easeInOut, motion, useMotionValueEvent, useScroll } from 'motion/react';
+import React, { useEffect, useState } from 'react';
+import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 import JumpingText from '../animations/jumpingtext/page';
 import Link from 'next/link';
 

@@ -1,7 +1,4 @@
 /* Animation Variants */
-
-import { delay, spring } from "motion";
-
 export const aboutVariant = {
   initial: {
     opacity: 0,

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { easeInOut, motion } from 'motion/react';
-import { spring } from 'motion';
+import React from 'react';
+import { motion } from 'motion/react';
 
 interface ProjectCardProps {
     title: string;

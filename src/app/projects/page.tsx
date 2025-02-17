@@ -1,6 +1,6 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from "motion/react";
+import React, { useEffect, useRef } from 'react';
+import { motion } from "motion/react";
 import NAVBAR from "../(components)/navbar/page";
 import * as variants from "../(components)/animations/animationvariants/page";
 import gsap from 'gsap';

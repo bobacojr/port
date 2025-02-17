@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 
 const MovingText = ({
         href = '/about',

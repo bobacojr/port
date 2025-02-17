@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { easeInOut, motion } from 'motion/react';
-import { spring } from 'motion';
+import { motion } from 'motion/react';
 
 interface Props {
     text: string,

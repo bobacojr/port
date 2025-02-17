@@ -1,11 +1,6 @@
 "use client"
-import { useAnimate, motion, useTransform, useScroll, useMotionValueEvent, AnimatePresence } from "motion/react";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-
+import { motion, AnimatePresence } from "motion/react";
 import NAVBAR from "./(components)/navbar/page";
-import Link from "next/link";
-import SCROLLYTRACKER from "./(components)/yscrolltracker/page";
 import ABOUTLANDING from "./(components)/landings/aboutlanding/page";
 import PROJECTLANDING from "./(components)/landings/projectlanding/page";
 import WORKLANDING from "./(components)/landings/worklanding/page";
