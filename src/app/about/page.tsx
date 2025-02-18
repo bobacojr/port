@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import NAVBAR from "../(components)/navbar/page";
-import * as variants from "../(components)/animations/animationvariants/page";
+import * as variants from "../lib/animationvariants/page";
 import CHICAGOSVG from "../(components)/svgs/chicagosvg/page";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useMemo, useState } from 'react';
-import * as variants from "../../animations/animationvariants/page";
+import * as variants from "../../../lib/animationvariants/page";
 import { motion, AnimatePresence } from "motion/react";
 import MOVINGTEXT from '../../animations/movingtext/page';
 

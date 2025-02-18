@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import TargetSVG from '../../svgs/targetsvg/page';
 import E2SVG from '../../svgs/e2svg/page';
 import GFSSVG from '../../svgs/gfssvg/page';
-import * as variants from "../../animations/animationvariants/page";
+import * as variants from "../../../lib/animationvariants/page";
 import MOVINGTEXT from '../../animations/movingtext/page';
 
 const WorkLanding = () => {

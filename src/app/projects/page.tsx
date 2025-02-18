@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from "motion/react";
 import NAVBAR from "../(components)/navbar/page";
-import * as variants from "../(components)/animations/animationvariants/page";
+import * as variants from "../lib/animationvariants/page";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';

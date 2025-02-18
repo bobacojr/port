@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from "motion/react";
 import NAVBAR from "../(components)/navbar/page";
-import * as variants from "../(components)/animations/animationvariants/page";
+import * as variants from "../lib/animationvariants/page";
 import GFSSVG from '../(components)/svgs/gfssvg/page';
 import E2SVG from '../(components)/svgs/e2svg/page';
 import TargetSVG from '../(components)/svgs/targetsvg/page';

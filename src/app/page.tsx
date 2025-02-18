@@ -5,7 +5,7 @@ import ABOUTLANDING from "./(components)/landings/aboutlanding/page";
 import PROJECTLANDING from "./(components)/landings/projectlanding/page";
 import WORKLANDING from "./(components)/landings/worklanding/page";
 import EMAIL from "./(components)/email/page";
-import * as variants from "./(components)/animations/animationvariants/page";
+import * as variants from "./lib/animationvariants/page";
 
 export default function Home() {
 
