@@ -15,7 +15,6 @@ const About = () => {
 
   const [isNavbarComplete, setIsNavbarComplete] = useState(false);
   const [isTextComplete, setIsTextComplete] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const chiMounted = useRef(false);
   const chiControls = useAnimation();
 
@@ -30,17 +29,13 @@ const About = () => {
     });
   };
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   // Start SVG animation when both navbar and text animations are complete
   useEffect(() => {
     if (isNavbarComplete && isTextComplete) {
       chiMounted.current = true;
       handleChiAnimation();
     }
-  }, [isNavbarComplete, isTextComplete]);
+  }, [isNavbarComplete, isTextComplete, chiControls]);
 
   return (
     <AnimatePresence mode="wait">
@@ -89,7 +84,7 @@ const About = () => {
                 className="flex w-full h-screen text-sm md:text-[1em] lg:text-lg xl:text-xl items-center flex-col bg-chiblack text-white pl-3 pb-24 pr-3">
                     <div className="flex flex-col xl:w-[1260px] justify-center items-center">
                         <motion.span>
-                            Chicago is where I call home, and Michigan is where I studied for my bachelor's in computer science at
+                            Chicago is where I call home, and Michigan is where I studied for my bachelors in computer science at
                             Grand Valley State University. Throughout my education and free time I have worked with many different programming
                             languages such as Python, Java, JavaScript, TypeScript, C/C++/C#, HTML/CSS, SQL, and more.
                         </motion.span>
@@ -108,8 +103,8 @@ const About = () => {
                         </motion.span>
                         <br/>
                         <motion.span>
-                            My favorite part about this field of work is that I have the chance to make a positive impact on other people's lives.
-                            I had the honor of creating a website for my friend's restaurant, and seeing the increased customer traffic and
+                            My favorite part about this field of work is that I have the chance to make a positive impact on other peoples lives.
+                            I had the honor of creating a website for my friends restaurant, and seeing the increased customer traffic and
                             5-star reviews always makes my day.
                         </motion.span>
                         <br/>

@@ -49,7 +49,7 @@ const Work = () => {
                             <motion.div className='work-border flex w-full mt-3'>
                                 <span className='flex m-2'>
                                     -Worked with a team managing the transportation and distribution services for Bob Evans and Michael Foods in the United States.<br/>
-                                    -Provided logistics services for customer’s supply chain operations such as planning, routing, appointing, tracking, and payment.<br/>
+                                    -Provided logistics services for customers supply chain operations such as planning, routing, appointing, tracking, and payment.<br/>
                                     -Monitored the status of KPIs including on time performance, tender acceptance, and routing guide compliance.<br/>
                                     -Reviewed all lumper receipts submitted by drivers, approving or denying charges based on submitted documents, time stamps, and signatures.<br/>
                                     -Reviewed flagged shipments to either approve, deny, and/or reconcile costs.<br/>
