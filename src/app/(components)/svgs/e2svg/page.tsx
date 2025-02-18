@@ -1,16 +1,21 @@
-// @ts-nocheck
 "use client"
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger) 
+gsap.registerPlugin(ScrollTrigger);
 
-const E2SVG = ({ yScrollValue = 0, beginAnimation }) => {
-    const svgRef = useRef(null);
+interface E2SVGProps {
+    yScrollValue?: number; // Optional prop with a default value
+    beginAnimation: boolean; // Explicitly define the type for beginAnimation
+}
+
+const E2SVG: React.FC<E2SVGProps> = ({ yScrollValue = 0, beginAnimation }) => {
+    const svgRef = useRef<SVGSVGElement | null>(null); // Add type to useRef
 
     useEffect(() => {
         const svgElement = svgRef.current;
+        if (!svgElement) return; // Check if svgElement is not null
 
         // Select the paths and polylines within the SVG
         const e2Paths = svgElement.querySelectorAll('.svg');
@@ -28,7 +33,6 @@ const E2SVG = ({ yScrollValue = 0, beginAnimation }) => {
                 start: `top-=${200} center`,
                 toggleActions: "play none none reverse"
             },
-            beginAnimation: beginAnimation
         });
 
         masterTimeline
@@ -36,17 +40,17 @@ const E2SVG = ({ yScrollValue = 0, beginAnimation }) => {
                 strokeDashoffset: 0,
                 duration: 2,
                 ease: 'none',
-                onStart: beginAnimation
             }).to(e2Paths, {
                 fill: '#282828',
                 fillOpacity: 1,
                 duration: 0.5,
                 ease: 'power1.inOut',
             });
-            return () => {
-                masterTimeline.kill();
-            };
-        }, [yScrollValue, beginAnimation]);
+
+        return () => {
+            masterTimeline.kill();
+        };
+    }, [yScrollValue, beginAnimation]);
 
     return ( 
         <svg 

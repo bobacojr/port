@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
 
-    const { scrollX, scrollY } = useScroll();
+    const { scrollY } = useScroll();
     const [scrollDirection, setScrollDirection] = useState<"up" | "down">("up");
 
     const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,7 @@ const Navbar = () => {
     // Tracks whether the user is scrolling up or down along the y axis
     useMotionValueEvent(scrollY, "change", (current)=> {
         const previous = scrollY.getPrevious();
-        if (previous !== undefined) {;'.'
+        if (previous !== undefined) {
             const diff = current - previous;
             setScrollDirection(diff > 0 ? "down" : "up");
         }
@@ -27,7 +27,7 @@ const Navbar = () => {
         if (scrollDirection === "down"){
             setIsOpen(false);
         }
-    })
+    }, [scrollDirection]);
 
     const handleContactClick = (e: React.MouseEvent<HTMLLIElement>) => {
         if (window.location.pathname === '/') {
@@ -44,7 +44,7 @@ const Navbar = () => {
         setIsHome(window.location.pathname === '/');
       }, []);
 
-    const handleHomeClick = (e: React.MouseEvent<HTMLLIElement>) => {
+    const handleHomeClick = () => {
         const homeSection = document.getElementById('home');
         if (homeSection) {
             homeSection.scrollIntoView({ behavior: 'smooth' });

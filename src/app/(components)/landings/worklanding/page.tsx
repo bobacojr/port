@@ -9,7 +9,6 @@ import MOVINGTEXT from '../../animations/movingtext/page';
 
 const WorkLanding = () => {
 
-    const [isMounted, setIsMounted] = useState(false);
     const targetMounted = useRef(false);
     const e2Mounted = useRef(false);
     const gfsMounted = useRef(false);
@@ -17,6 +16,22 @@ const WorkLanding = () => {
     const targetControls = useAnimation();
     const e2Controls = useAnimation();
     const gfsControls = useAnimation();
+
+    const [startE2Animation, setStartE2Animation] = useState(false);
+    useEffect(() => {
+        setStartE2Animation(true);
+    }, []);
+
+    const [startGFSAnimation, setStartGFSAnimation] = useState(false);
+    useEffect(() => {
+        console.log("hello")
+        setStartGFSAnimation(true);
+    }, []);
+
+    const [startTargetAnimation, setStartTargetAnimation] = useState(false);
+    useEffect(() => {
+        setStartTargetAnimation(true);
+    }, []);
 
     const handleTargetAnimation = async () => {
         if (!targetMounted.current) return;
@@ -51,10 +66,6 @@ const WorkLanding = () => {
         });
     };
 
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
     return ( 
         <div className='flex flex-col w-full h-full justify-center items-center'>
             <div className="flex w-full h-16 justify-center items-center mt-8">
@@ -63,7 +74,7 @@ const WorkLanding = () => {
                 </motion.span>
             </div>
             <motion.div className='w-[17em] sm:w-[26em] xl:w-[30em] flex flex-col justify-center items-center mb-6' id='gfs-title'>
-                <GFSSVG beginAnimation={() => { gfsMounted.current = true; handleGFSAnimation(); }}/>
+                <GFSSVG beginAnimation={startGFSAnimation}/>
                 <motion.h1 
                     initial={{ opacity: 0 }} 
                     animate={gfsControls} 
@@ -73,7 +84,7 @@ const WorkLanding = () => {
             </motion.div>
             <div className="flex flex-col lg:flex-row lg:mt-8 lg:gap-16 lg:mb-6 xl:gap-24 2xl:gap-36">
                 <motion.div className='w-[17em] sm:w-[26em] xl:w-[30em] flex flex-col justify-center items-center mb-6' id='gfs-title'>
-                    <E2SVG beginAnimation={() => { e2Mounted.current = true; handleE2Animation(); }}/>
+                    <E2SVG beginAnimation={startE2Animation}/>
                     <motion.h1 
                         initial={{ opacity: 0 }} 
                         animate={e2Controls} 
@@ -82,7 +93,7 @@ const WorkLanding = () => {
                     </motion.h1>
                 </motion.div>
                 <motion.div className='w-[17em] sm:w-[26em] xl:w-[30em] flex flex-col justify-center items-center mb-6' id='gfs-title'>
-                    <TargetSVG beginAnimation={() => { targetMounted.current = true; handleTargetAnimation(); }}/>
+                    <TargetSVG beginAnimation={startTargetAnimation}/>
                     <motion.h1 
                         initial={{ opacity: 0 }} 
                         animate={targetControls} 

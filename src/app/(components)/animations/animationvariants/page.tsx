@@ -137,7 +137,7 @@ export const targetPathVariants = {
     pathLength: 0, 
     fillOpacity: 0 
   },
-  visible: (i: number) => ({
+  visible: () => ({
     pathLength: 1,
     fillOpacity: 1,
     transition: {

@@ -1,7 +1,8 @@
-"use client"
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+"use client";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image"; // Import the Image component from Next.js
 import MOVINGTEXT from "../../animations/movingtext/page";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -89,7 +90,8 @@ const ProjectLanding = () => {
 
         // Cleanup function to revert GSAP context
         return () => {
-            if (ctx.current) { // Null check
+            if (ctx.current) {
+                // Null check
                 ctx.current.revert(); // Reverts all GSAP animations and ScrollTriggers
             }
         };
@@ -108,23 +110,49 @@ const ProjectLanding = () => {
                         <div
                             className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"
                             ref={projectCard1Ref}
-                            >
-                            <img src={"./pngs/prodcon.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"/>
-                            <h1 className="worktitle sageworld !w-[18em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">Producer/Consumer CPU Simulation</h1>
+                        >
+                            <Image
+                                src="/pngs/prodcon.png" // Path to your image
+                                alt="Producer Consumer Simulation" // Meaningful alt text
+                                width={500} // Set the width of the image
+                                height={300} // Set the height of the image
+                                className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"
+                                priority // Use if the image is above the fold
+                            />
+                            <h1 className="worktitle sageworld !w-[18em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">
+                                Producer/Consumer CPU Simulation
+                            </h1>
                         </div>
                         <div
                             className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[21em] xl:!w-[34em]"
                             ref={projectCard2Ref}
-                            >
-                            <img src={"./pngs/TortilleriaPhoto.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[21em] xl:!w-[34em]" />
-                            <h1 className="worktitle sageworld !w-[17em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">Tortilleria Y Taqueria Mi Tierra</h1>
+                        >
+                            <Image
+                                src="/pngs/TortilleriaPhoto.png" // Path to your image
+                                alt="Tortilleria Y Taqueria Mi Tierra" // Meaningful alt text
+                                width={500} // Set the width of the image
+                                height={300} // Set the height of the image
+                                className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[21em] xl:!w-[34em]"
+                            />
+                            <h1 className="worktitle sageworld !w-[17em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">
+                                Tortilleria Y Taqueria Mi Tierra
+                            </h1>
                         </div>
                     </div>
-                    <div className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"
+                    <div
+                        className="imagesize md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"
                         ref={projectCard3Ref}
-                        >
-                        <img src={"./pngs/ThreeJS.png"} className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]" />
-                        <h1 className="worktitle sageworld !w-[12.4em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">ThreeJS & WebGL Scene</h1>
+                    >
+                        <Image
+                            src="/pngs/ThreeJS.png" // Path to your image
+                            alt="ThreeJS 3D Scene" // Meaningful alt text
+                            width={500} // Set the width of the image
+                            height={300} // Set the height of the image
+                            className="projectimage md:!h-[18em] md:!w-[22em] lg:!h-[22em] lg:!w-[28em] xl:!h-[24em] xl:!w-[34em]"
+                        />
+                        <h1 className="worktitle sageworld !w-[12.4em] sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest">
+                            ThreeJS & WebGL Scene
+                        </h1>
                     </div>
                 </div>
             </div>

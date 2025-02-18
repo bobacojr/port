@@ -1,11 +1,11 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import * as variants from "../../animations/animationvariants/page";
 import { motion, AnimatePresence } from "motion/react";
 import MOVINGTEXT from '../../animations/movingtext/page';
 
 const AboutLanding = () => {
-    const words1 = ["INNOVATOR", "ADAPTABLE", "PROACTIVE"];
+    const words1 = useMemo(() => ["INNOVATOR", "ADAPTABLE", "PROACTIVE"], []);
     const [currentWord1, setCurrentWord1] = useState(words1[0]);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const AboutLanding = () => {
         return () => clearInterval(interval); // Always clear the interval to stop memory leaks
     }, [words1]); // Dependency array
 
-    const words2 = ["DIGITAL ARTIST", "COMMUNICATOR", "GOAL-ORIENTED"];
+    const words2 = useMemo(() => ["DIGITAL ARTIST", "COMMUNICATOR", "GOAL-ORIENTED"], []);
     const [currentWord2, setCurrentWord2] = useState(words2[0]);
 
     useEffect(() => {

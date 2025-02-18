@@ -1,26 +1,28 @@
-//@ts-nocheck
 "use client"
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
-const GFSSVG = ({ yScrollValue = 0, beginAnimation }) => {
+interface GFSSVGProps {
+    yScrollValue?: number; // Optional prop with a default value
+    beginAnimation: boolean; // Explicitly define the type for beginAnimation
+}
 
-    // Colors: #505050, #C80000,
-
-    const svgRef = useRef(null);
+const GFSSVG: React.FC<GFSSVGProps> = ({ yScrollValue = 0, beginAnimation }) => {
+    const svgRef = useRef<SVGSVGElement | null>(null); // Add type to useRef
 
     useEffect(() => {
         const svgElement = svgRef.current;
-    
+        if (!svgElement) return; // Check if svgElement is not null
+
         // Select paths by class
         const grayPaths = svgElement.querySelectorAll('.gfs-gray, .gfs-gray-word');
         const redWordPaths = svgElement.querySelectorAll('.gfs-red-word');
         const redPaths = svgElement.querySelectorAll('.gfs-red');
-    
-        gsap.set([grayPaths, redWordPaths, redPaths], {
+
+        gsap.set([...grayPaths, ...redWordPaths, ...redPaths], {
             strokeDasharray: 1000,
             strokeDashoffset: 1000,
             fillOpacity: 0
@@ -33,16 +35,14 @@ const GFSSVG = ({ yScrollValue = 0, beginAnimation }) => {
                 start: `top-=${200} center`,
                 toggleActions: "play none none reverse"
             },
-            beginAnimation: beginAnimation
         });
 
         // Animate paths
         masterTimeline
-            .to([grayPaths, redWordPaths, redPaths], {
+            .to([...grayPaths, ...redWordPaths, ...redPaths], {
                 strokeDashoffset: 0,
                 duration: 6,
                 ease: 'none',
-                onStart: beginAnimation
             })
             .to(grayPaths, {
                 fill: '#505050',
@@ -56,9 +56,10 @@ const GFSSVG = ({ yScrollValue = 0, beginAnimation }) => {
                 duration: 0.5,
                 ease: 'power1.inOut',
             }, "-=4");
-            return () => {
-                masterTimeline.kill();
-            };
+
+        return () => {
+            masterTimeline.kill();
+        };
     }, [yScrollValue, beginAnimation]);
      
     return ( 

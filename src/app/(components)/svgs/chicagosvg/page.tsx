@@ -1,18 +1,21 @@
-// @ts-nocheck
 "use client"
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger) 
+gsap.registerPlugin(ScrollTrigger);
 
-const ChicagoSVG = ({ beginAnimation }) => {
-    const svgRef = useRef(null);
+interface ChicagoSVGProps {
+    beginAnimation: boolean; // Explicitly define the type for beginAnimation
+}
+
+const ChicagoSVG: React.FC<ChicagoSVGProps> = ({ beginAnimation }) => {
+    const svgRef = useRef<SVGSVGElement | null>(null); // Add type to useRef
 
     useEffect(() => {
-        if (!beginAnimation) return; // Only animate if beginAnimation is true
-
         const svgElement = svgRef.current;
+        if (!beginAnimation || !svgElement) return; // Check if svgRef.current is not null
+
         const chiPaths = svgElement.querySelectorAll(".svg");
 
         gsap.set(chiPaths, {
@@ -21,13 +24,15 @@ const ChicagoSVG = ({ beginAnimation }) => {
             strokeDashoffset: 11000,
             fillOpacity: 0,
         });
+
         const masterTimeline = gsap.timeline({
-        scrollTrigger: {
+            scrollTrigger: {
                 trigger: svgElement,
                 start: `top-=${200} center`,
                 toggleActions: "play none none reverse",
             },
         });
+
         masterTimeline.to(chiPaths, {
             visibility: 'visible',
             strokeDashoffset: 0,
@@ -41,7 +46,7 @@ const ChicagoSVG = ({ beginAnimation }) => {
         });
 
         return () => {
-        masterTimeline.kill();
+            masterTimeline.kill();
         };
     }, [beginAnimation]);
 

@@ -1,4 +1,3 @@
-//@ts-nocheck
 "use client"
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
@@ -7,12 +6,18 @@ import motion from 'motion/react';
 
 gsap.registerPlugin(ScrollTrigger) 
 
-const TargetSVG = ({ yScrollValue = 0, beginAnimation }) => {
+interface TargetProps {
+    yScrollValue?: number; // Optional prop with a default value
+    beginAnimation: boolean; // Explicitly define the type for beginAnimation
+}
 
-    const svgRef = useRef(null);
+const TargetSVG: React.FC<TargetProps> = ({ yScrollValue = 0, beginAnimation }) => {
+
+    const svgRef = useRef<SVGSVGElement | null>(null);
 
     useEffect(() => {
         const svgElement = svgRef.current;
+        if (!svgElement) return;
 
         // Select the paths and polylines within the SVG
         const paths = svgElement.querySelectorAll('path, polyline');
@@ -39,7 +44,11 @@ const TargetSVG = ({ yScrollValue = 0, beginAnimation }) => {
                 strokeDashoffset: 0,
                 duration: 2,
                 ease: 'none',
-                onStart: beginAnimation
+                onStart: () => {
+                    if (beginAnimation) {
+                        
+                    }
+                }
             }).to(paths, {
                 fill: '#CC0000',
                 fillOpacity: 1,
