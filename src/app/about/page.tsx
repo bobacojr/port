@@ -86,7 +86,7 @@ const About = () => {
                 variants={variants.aboutVariant1} 
                 animate={isNavbarComplete && isTextComplete? "animate" : "initial"} 
                 initial='initial' 
-                className="flex w-full text-sm md:text-[1em] lg:text-lg xl:text-xl justify-center items-center flex-col bg-chiblack text-white pl-3 pb-24 pr-3">
+                className="flex w-full h-screen text-sm md:text-[1em] lg:text-lg xl:text-xl items-center flex-col bg-chiblack text-white pl-3 pb-24 pr-3">
                     <div className="flex flex-col xl:w-[1260px] justify-center items-center">
                         <motion.span>
                             Chicago is where I call home, and Michigan is where I studied for my bachelor's in computer science at

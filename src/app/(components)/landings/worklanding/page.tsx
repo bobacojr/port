@@ -1,6 +1,6 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useAnimation } from "motion/react";
+import React from 'react';
+import { motion } from "motion/react";
 import TargetSVG from '../../svgs/targetsvg/page';
 import E2SVG from '../../svgs/e2svg/page';
 import GFSSVG from '../../svgs/gfssvg/page';
@@ -8,63 +8,6 @@ import * as variants from "../../animations/animationvariants/page";
 import MOVINGTEXT from '../../animations/movingtext/page';
 
 const WorkLanding = () => {
-
-    const targetMounted = useRef(false);
-    const e2Mounted = useRef(false);
-    const gfsMounted = useRef(false);
-
-    const targetControls = useAnimation();
-    const e2Controls = useAnimation();
-    const gfsControls = useAnimation();
-
-    const [startE2Animation, setStartE2Animation] = useState(false);
-    useEffect(() => {
-        setStartE2Animation(true);
-    }, []);
-
-    const [startGFSAnimation, setStartGFSAnimation] = useState(false);
-    useEffect(() => {
-        console.log("hello")
-        setStartGFSAnimation(true);
-    }, []);
-
-    const [startTargetAnimation, setStartTargetAnimation] = useState(false);
-    useEffect(() => {
-        setStartTargetAnimation(true);
-    }, []);
-
-    const handleTargetAnimation = async () => {
-        if (!targetMounted.current) return;
-        await targetControls.start({
-            opacity: 1,
-            transition: {
-                duration: 1,
-                easing: 'easeInOut'
-            },
-        });
-    };
-
-    const handleE2Animation = async () => {
-        if (!e2Mounted.current) return;
-        await e2Controls.start({
-            opacity: 1,
-            transition: {
-                duration: 1,
-                easing: 'easeInOut'
-            },
-        });
-    };
-
-    const handleGFSAnimation = async () => {
-        if (!gfsMounted.current) return;
-        await gfsControls.start({
-            opacity: 1,
-            transition: {
-                duration: 1,
-                easing: 'easeInOut'
-            },
-        });
-    };
 
     return ( 
         <div className='flex flex-col w-full h-full justify-center items-center'>
@@ -74,32 +17,14 @@ const WorkLanding = () => {
                 </motion.span>
             </div>
             <motion.div className='w-[17em] sm:w-[26em] xl:w-[30em] flex flex-col justify-center items-center mb-6' id='gfs-title'>
-                <GFSSVG beginAnimation={startGFSAnimation}/>
-                <motion.h1 
-                    initial={{ opacity: 0 }} 
-                    animate={gfsControls} 
-                    className='worktitle sageworld sm:!text-[1.2em] lg:!text-[1.4em] thernaly tracking-widest'>
-                    IT Administrator
-                </motion.h1>
+                <GFSSVG/>
             </motion.div>
             <div className="flex flex-col lg:flex-row lg:mt-8 lg:gap-16 lg:mb-6 xl:gap-24 2xl:gap-36">
                 <motion.div className='w-[17em] sm:w-[26em] xl:w-[30em] flex flex-col justify-center items-center mb-6' id='gfs-title'>
-                    <E2SVG beginAnimation={startE2Animation}/>
-                    <motion.h1 
-                        initial={{ opacity: 0 }} 
-                        animate={e2Controls} 
-                        className='worktitle sageworld !w-[12em] sm:!text-[1.3em] lg:!text-[1.4em] thernaly tracking-widest'>
-                        Logistics Coordinator
-                    </motion.h1>
+                    <E2SVG/>
                 </motion.div>
                 <motion.div className='w-[17em] sm:w-[26em] xl:w-[30em] flex flex-col justify-center items-center mb-6' id='gfs-title'>
-                    <TargetSVG beginAnimation={startTargetAnimation}/>
-                    <motion.h1 
-                        initial={{ opacity: 0 }} 
-                        animate={targetControls} 
-                        className='worktitle thernaly !w-[12.7em] sm:!text-[1.3em] lg:!text-[1.4em] tracking-widest '>
-                        Fulfillment Specialist
-                    </motion.h1>
+                    <TargetSVG/>
                 </motion.div>
             </div>
             <div className="flex flex-col w-full overflow-x-hidden">

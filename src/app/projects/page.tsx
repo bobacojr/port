@@ -1,16 +1,18 @@
 "use client"
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from "motion/react";
 import NAVBAR from "../(components)/navbar/page";
 import * as variants from "../(components)/animations/animationvariants/page";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
-    const sectionRef = useRef<HTMLDivElement>(null);
+    const [isComplete, setIsComplete] = useState(false);
+
     const prodconRef = useRef<HTMLDivElement>(null);
     const tortRef = useRef<HTMLDivElement>(null);
     const threeRef = useRef<HTMLDivElement>(null);
@@ -22,6 +24,8 @@ const Projects = () => {
     const ctx = useRef<gsap.Context | null>(null);
 
     useEffect(() => {
+        window.scrollTo(0,0);
+
         ctx.current = gsap.context(() => {
             gsap.from(prodconRef.current, {
                 opacity: 0,
@@ -110,10 +114,18 @@ const Projects = () => {
     }, []);
 
     return (
-        <motion.div className="flex flex-col w-full h-full overflow-x-hidden" ref={sectionRef}>
-            <motion.div className="flex w-full h-20 xl:h-24 items-center justify-center" id="navbar-container" variants={variants.navbarAnimationVariant} initial='initial' animate='animate'>
-                <NAVBAR />
-            </motion.div>
+        <motion.div
+                key={"projects-page"}
+                className="flex flex-col w-full h-full overflow-x-hidden"
+                initial={{ opacity: 0, x: "-100%" }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: "-100%" }}
+                transition={{ duration: 0.8 }}
+                onAnimationComplete={() => {setIsComplete(true)}}
+                >
+                <motion.div className="flex w-full h-20 xl:h-24 items-center justify-center" id="navbar-container" variants={variants.navbarAnimationVariant} initial='initial' animate={isComplete ? 'animate' : 'initial'}>
+                    <NAVBAR />
+                </motion.div>
             <div className="flex flex-col w-full h-full items-center justify-center">
 
                 <motion.div className='flex flex-col lg:flex-row justify-center items-center ml-3 mr-3 lg:mb-6 xl:ml-16 xl:mr-16' ref={prodconRef}>
@@ -122,7 +134,7 @@ const Projects = () => {
                             Producer/Consumer CPU Simulation
                         </h1>
                         <div className='flex flex-row'>
-                            <img src={"./pngs/prodcon.png"} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Producer Consumer Simulation'/>
+                            <Image src="/pngs/prodcon.png" width={640} height={360} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Producer Consumer Simulation'/>
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
@@ -138,7 +150,7 @@ const Projects = () => {
                             Tortilleria Y Taqueria Mi Tierra
                         </h1>
                         <div className='flex flex-row'>
-                            <img src={"./pngs/TortilleriaPhoto.png"} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Tortilleria Y Taqueria Mi Tierra'/>
+                            <Image src="/pngs/TortilleriaPhoto.png" width={640} height={360} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Tortilleria Y Taqueria Mi Tierra'/>
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
@@ -155,7 +167,7 @@ const Projects = () => {
                             ThreeJS & WebGL Scene
                         </h1>
                         <div className='flex flex-row'>
-                            <img src={"./pngs/ThreeJS.png"} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='ThreeJS 3D Scene'/>
+                            <Image src="/pngs/ThreeJS.png" width={640} height={360} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='ThreeJS 3D Scene'/>
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-2 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
@@ -172,7 +184,7 @@ const Projects = () => {
                             Python/Pygame Chess
                         </h1>
                         <div className='flex flex-row'>
-                            <img src={"./pngs/chess.png"} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Chess'/>
+                            <Image src="/pngs/chess.png" width={640} height={360} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Chess'/>
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
@@ -187,7 +199,7 @@ const Projects = () => {
                             Doom Inspired Python Game
                         </h1>
                         <div className='flex flex-row'>
-                            <img src={"./pngs/Doom.png"} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Doom'/>
+                            <Image src="/pngs/Doom.png" width={640} height={360} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Doom'/>
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
@@ -202,7 +214,7 @@ const Projects = () => {
                             Python/Pygame Jumping Knight Game
                         </h1>
                         <div className='flex flex-row'>
-                            <img src={"./pngs/dungeon.png"} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Dungeon Jumper'/>
+                            <Image src="/pngs/dungeon.png" width={640} height={360} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Dungeon Jumper'/>
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
@@ -217,7 +229,7 @@ const Projects = () => {
                             Saving Christmas - Amazon Web Scraper
                         </h1>
                         <div className='flex flex-row'>
-                            <img src={"./pngs/savingchristmas.png"} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Saving Christmas'/>
+                            <Image src="/pngs/savingchristmas.png" width={640} height={360} className="sm:w-[28em] xl:w-[40em] border-2 border-mygray rounded-[30px]" alt='Saving Christmas'/>
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>

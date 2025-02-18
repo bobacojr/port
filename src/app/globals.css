@@ -49,6 +49,12 @@
     src: url('/fonts/ChicagoFLF.ttf')format('truetype');
 }
 
+.work-border {
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
 .smallbutton {
     display: flex;
     cursor: pointer;
