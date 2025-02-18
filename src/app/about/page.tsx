@@ -35,7 +35,7 @@ const About = () => {
       chiMounted.current = true;
       handleChiAnimation();
     }
-  }, [isNavbarComplete, isTextComplete, handleChiAnimation]);
+  }, [isNavbarComplete, isTextComplete]);
 
   return (
     <AnimatePresence mode="wait">
@@ -110,7 +110,7 @@ const About = () => {
                         <br/>
                         <motion.span>
                             Thank you for taking a look at my porfolio, and if there are any questions or feedback please refer to the
-                            "Work" section where you will find my email address.
+                            Work section where you will find my email address.
                         </motion.span>
                         <br/>
                         <motion.span>
