@@ -138,7 +138,7 @@ const Projects = () => {
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
-                        This was my first Django Python project ever, and I had a ton of fun with it! The original project came from my college's Operating Systems Concepts class, and I wanted
+                        This was my first Django Python project ever, and I had a ton of fun with it! The original project came from my colleges Operating Systems Concepts class, and I wanted
                         to make my own frontend addition to it. The main goal of this project was to simulate the producer-consumer problem and how one can utilize semaphores and mutexes to solve
                         the problem. I used Celery with Redis as a message broker & task queue for this project, and set up a MySQL server on my local machine for storing all of my data.
                     </p>

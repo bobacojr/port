@@ -35,7 +35,7 @@ const About = () => {
       chiMounted.current = true;
       handleChiAnimation();
     }
-  }, [isNavbarComplete, isTextComplete, chiControls]);
+  }, [isNavbarComplete, isTextComplete, handleChiAnimation]);
 
   return (
     <AnimatePresence mode="wait">
