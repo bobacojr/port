@@ -45,7 +45,7 @@ const JumpingText: React.FC<Props> = ({ text }) => {
                 </motion.span>
             ))}
         </motion.div>
-     );
-}
+    );
+};
  
 export default JumpingText;

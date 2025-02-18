@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image"; // Import the Image component from Next.js
-import MOVINGTEXT from "../../../lib/movingtext/page";
+import MOVINGTEXT from "../../animations/movingtext";
 
 gsap.registerPlugin(ScrollTrigger);
 

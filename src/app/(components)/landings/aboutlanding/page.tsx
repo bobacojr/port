@@ -1,8 +1,8 @@
 "use client"
 import React, { useEffect, useMemo, useState } from 'react';
-import * as variants from "../../../lib/animationvariants/page";
+import * as variants from "../../animations/animationvariants";
 import { motion, AnimatePresence } from "motion/react";
-import MOVINGTEXT from '../../../lib/movingtext/page';
+import MOVINGTEXT from '../../animations/movingtext';
 
 const AboutLanding = () => {
     const words1 = useMemo(() => ["INNOVATOR", "ADAPTABLE", "PROACTIVE"], []);

@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from "motion/react";
 import NAVBAR from "../(components)/navbar/page";
-import * as variants from "../lib/animationvariants/page";
-import GFSSVG from '../(components)/svgs/gfssvg/page';
-import E2SVG from '../(components)/svgs/e2svg/page';
-import TargetSVG from '../(components)/svgs/targetsvg/page';
+import * as variants from "../(components)/animations/animationvariants";
+import GFSSVG from '../(components)/svgs/gfssvg';
+import E2SVG from '../(components)/svgs/e2svg';
+import TargetSVG from '../(components)/svgs/targetsvg';
 
 const Work = () => {
     const [isComplete, setIsComplete] = useState(false);

@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import NAVBAR from "../(components)/navbar/page";
-import * as variants from "../lib/animationvariants/page";
-import CHICAGOSVG from "../(components)/svgs/chicagosvg/page";
+import * as variants from "../(components)/animations/animationvariants";
+import CHICAGOSVG from "../(components)/svgs/chicagosvg";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -18,7 +18,7 @@ const About = () => {
   const chiMounted = useRef(false);
   const chiControls = useAnimation();
 
-  const handleChiAnimation = async () => {
+  const handleChiAnimation = useCallback(async () => {
     if (!chiMounted.current) return;
     await chiControls.start({
       opacity: 1,
@@ -27,7 +27,7 @@ const About = () => {
         easing: "easeInOut",
       },
     });
-  };
+  }, [chiControls]);
 
   // Start SVG animation when both navbar and text animations are complete
   useEffect(() => {
@@ -35,7 +35,7 @@ const About = () => {
       chiMounted.current = true;
       handleChiAnimation();
     }
-  }, [isNavbarComplete, isTextComplete]);
+  }, [isNavbarComplete, isTextComplete, handleChiAnimation]);
 
   return (
     <AnimatePresence mode="wait">
