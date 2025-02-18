@@ -44,4 +44,10 @@ export default {
     },
   },
   plugins: [],
+  safelist: [
+    // Safelist all custom classes, colors, font sizes, and screens
+    { pattern: /bg-(myteal|mygray|gfsred|chiblack)/ }, // Safelist custom colors
+    { pattern: /text-(4\.5xl|6\.2xl|6\.5xl|7\.5xl|7\.8xl|8\.5xl|10xl|10\.5xl|11xl|11\.25xl|12xl|13xl|14xl|15xl|16xl|17xl|18xl|19xl)/ }, // Safelist custom font sizes
+    { pattern: /(xl\.5|3xl)/ }, // Safelist custom screens
+  ],
 } satisfies Config;
