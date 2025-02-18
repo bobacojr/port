@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll } from 'motion/react';
-import JumpingText from '../animations/jumpingtext/page';
+import JumpingText from '../../lib/jumpingtext/page';
 import Link from 'next/link';
 
 const Navbar = () => {
