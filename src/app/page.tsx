@@ -6,8 +6,20 @@ import PROJECTLANDING from "./(components)/landings/projectlanding/page";
 import WORKLANDING from "./(components)/landings/worklanding/page";
 import EMAIL from "./(components)/email/page";
 import * as variants from "./(components)/animations/animationvariants";
+import { useEffect } from "react";
 
 export default function Home() {
+
+  useEffect(() => {
+    const scrollToContact = sessionStorage.getItem("scrollToContact");
+    if (scrollToContact === "true") {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+      sessionStorage.removeItem("scrollToContact");
+    }
+  }, []);
 
   return (
     <AnimatePresence mode="wait">

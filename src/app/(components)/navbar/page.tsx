@@ -30,11 +30,14 @@ const Navbar = () => {
     }, [scrollDirection]);
 
     const handleContactClick = (e: React.MouseEvent<HTMLLIElement>) => {
-        if (window.location.pathname === '/') {
-            e.preventDefault();
+        e.preventDefault(); // Prevent default link behavior
+        if (window.location.pathname !== '/') {
+            window.location.href = '/'; // Navigate to landing page
+            sessionStorage.setItem('scrollToContact', 'true'); // Store the intent to scroll to contact section
+        } else {
             const contactSection = document.getElementById('contact');
             if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
+                contactSection.scrollIntoView({ behavior: 'smooth' }) // Scroll to contact section
             }
         }
     };
