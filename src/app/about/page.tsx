@@ -103,9 +103,9 @@ const About = () => {
                         </motion.span>
                         <br/>
                         <motion.span>
-                            My favorite part about this field of work is that I have the chance to make a positive impact on other peoples lives.
-                            I had the honor of creating a website for my friends restaurant, and seeing the increased customer traffic and
-                            5-star reviews always makes my day.
+                            {`My favorite part about this field of work is that I have the chance to make a positive impact on other people's lives.
+                            I had the honor of creating a website for my friend's restaurant, and seeing the increased customer traffic and
+                            5-star reviews always makes my day.`}
                         </motion.span>
                         <br/>
                         <motion.span>

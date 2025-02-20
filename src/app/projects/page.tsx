@@ -138,9 +138,9 @@ const Projects = () => {
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
-                        This was my first Django Python project ever, and I had a ton of fun with it! The original project came from my colleges Operating Systems Concepts class, and I wanted
+                        {`This was my first Django Python project ever, and I had a ton of fun with it! The original project came from my college's Operating Systems Concepts class, and I wanted
                         to make my own frontend addition to it. The main goal of this project was to simulate the producer-consumer problem and how one can utilize semaphores and mutexes to solve
-                        the problem. I used Celery with Redis as a message broker & task queue for this project, and set up a MySQL server on my local machine for storing all of my data.
+                        the problem. I used Celery with Redis as a message broker & task queue for this project, and set up a MySQL server on my local machine for storing all of my data.`}
                     </p>
                 </motion.div>
 
@@ -154,7 +154,7 @@ const Projects = () => {
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
-                        This was my first freelance job I have ever done, and I had the honor of doing it for one of my best friends. Him and his family own a mexican restaurant named
+                        This was my first freelance job I have ever done, and I had the honor of doing it for one of my best friends. He and his family own a mexican restaurant named
                         Tortilleria Y Taqueria Mi Tierra, and they make some of the BEST food you will ever have. For this project I had to teach myself how to use Gimp to edit photos/images,
                         how to use colors & color palettes correctly, the ins-and-outs of font selection, how to setup the OSM API, proper responsive design, and much more! I am very proud of what I created,
                         and I am even happier to help connect others all around the world to this amazing family and their delicious food.
@@ -188,7 +188,7 @@ const Projects = () => {
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
-                        This was my final project in my last core computer science class. Not much to say here except that it was a great experience, and I always come back to this project and play it before my classes. Me and my partner
+                        This was my final project in my last core computer science class. Not much to say here except that it was a great experience, and I always come back to this project and play it before my classes. My partner and I
                         were the only students in the class to completely finish the project, and we were also able to add En passant & Castling capabilities as well. You can either play with a friend, or fight against a basic chess AI!
                     </p>
                 </div>
@@ -203,8 +203,8 @@ const Projects = () => {
                         </div>
                     </motion.div>
                     <p className='w-[90%] lg:w-[40%] mb-10 mt-3 lg:ml-3 lg:mt-10 text-sm xl:text-lg'>
-                        This was a group project that me and my team completed in our Introduction to Software Engineering course. For our semester long project we decided to create a clone of a Doom/Wolfenstein mashup in python. To create the 
-                        game we had utilize raycasting techniques and 3D projection. I had a lot of fun with this project and learned a lot about textures, object rendering, raycasting, and pixel sprite creation.
+                        This was a group project that my team and I completed in our Introduction to Software Engineering course. For our semester long project we decided to create a clone of a Doom/Wolfenstein mashup in python. To create the 
+                        game we utilized raycasting techniques and 3D projection. I had a lot of fun with this project and learned a lot about textures, object rendering, raycasting, and pixel sprite creation.
                     </p>
                 </div>
 
